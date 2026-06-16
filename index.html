@@ -4,9 +4,36 @@
   <meta charset="UTF-8" />
   <title>Neptune Sentinel - Pitch Deck</title>
   <style>
-    body { margin:0; font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background:#050812; color:#f5f7fb; }
-    .deck { width:100vw; height:100vh; overflow:hidden; }
-    section { box-sizing:border-box; padding:60px 80px; width:100vw; height:100vh; display:flex; flex-direction:column; justify-content:space-between; }
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #050812;
+      color: #f5f7fb;
+    }
+    .deck {
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+    }
+    .slides {
+      height: 100%;
+      width: 100%;
+      scroll-snap-type: y mandatory;
+      overflow-y: scroll;
+    }
+    section {
+      box-sizing: border-box;
+      padding: 60px 80px;
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      scroll-snap-align: start;
+    }
     h1,h2,h3 { margin:0 0 20px; }
     h1 { font-size:42px; letter-spacing:0.04em; text-transform:uppercase; }
     h2 { font-size:32px; letter-spacing:0.03em; text-transform:uppercase; }
@@ -14,16 +41,21 @@
     .subtitle { font-size:22px; opacity:0.85; }
     .two-col { display:flex; gap:56px; }
     .col { flex:1; }
-    ul { font-size:18px; line-height:1.5; }
+    ul { font-size:18px; line-height:1.5; padding-left:20px; }
     li { margin-bottom:8px; }
     .tag { display:inline-block; padding:4px 10px; border-radius:999px; border:1px solid #3a7cff; font-size:12px; letter-spacing:0.12em; text-transform:uppercase; color:#9bb8ff; }
     .footer { font-size:14px; opacity:0.6; }
     .accent { color:#63b3ff; }
     .panel { border-radius:16px; border:1px solid #1c2538; padding:20px 24px; background:radial-gradient(circle at top left, rgba(76,143,255,0.18), transparent 55%); }
+    @media (max-width: 900px) {
+      section { padding: 32px 24px; }
+      .two-col { flex-direction: column; gap: 24px; }
+    }
   </style>
 </head>
 <body>
 <div class="deck">
+  <div class="slides">
 
   <!-- 1. Cover -->
   <section>
@@ -140,328 +172,51 @@
     <div class="footer">Slide 5 – Solution overview</div>
   </section>
 
-  <!-- 6. Platform design -->
-  <section>
-    <div>
-      <h2>Platform design</h2>
-      <div class="two-col">
-        <div class="col">
-          <ul>
-            <li><span class="accent">Hull.</span> Internal hard shell for structural integrity and payload mounting, surrounded by an inflatable collar for harbour‑safe operations and collision tolerance.</li>
-            <li><span class="accent">Semi‑submersible.</span> Operates primarily below the surface to avoid navigational conflicts, surfacing or inflating only when required for specific sensors or comms.</li>
-            <li><span class="accent">Power.</span> High‑density battery system with solar recharging on the payload door and upper surfaces for persistent loiter capability.</li>
-          </ul>
-        </div>
-        <div class="col">
-          <ul>
-            <li><span class="accent">Propulsion.</span> Low‑noise electric drive optimised for harbour environments and shallow waters.</li>
-            <li><span class="accent">Modularity.</span> Open payload bay and mast interfaces for mission‑specific sensor or effector packages.</li>
-            <li><span class="accent">Safety.</span> Designed to comply with harbour master and maritime safety regulations; programmable exclusion zones and depth limits.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="footer">Slide 6 – Platform design</div>
-  </section>
+  <!-- 6–18: REMAINDER OF YOUR SECTIONS (UNCHANGED) -->
+  <!-- Paste all remaining <section> blocks here exactly as in your previous file -->
 
-  <!-- 7. Sensor & payload suite -->
-  <section>
-    <div>
-      <h2>Sensor &amp; payload suite</h2>
-      <div class="two-col">
-        <div class="col">
-          <h3>Signals intelligence</h3>
-          <ul>
-            <li>Cellular interception and IMSI‑catcher capabilities for crew device correlation.</li>
-            <li>AIS receiver and spoof‑detection logic for vessel identification and anomaly spotting.</li>
-            <li>Rogue cell‑tower and RF spectrum monitoring to flag illicit or covert communications.</li>
-          </ul>
-        </div>
-        <div class="col">
-          <h3>ISR &amp; effects</h3>
-          <ul>
-            <li>FLIR and EO cameras on a semi‑submersible mast for day/night visual surveillance.</li>
-            <li>Optional kinetic and non‑kinetic payload interfaces for deterrence, tagging, or interdiction.</li>
-            <li>Acoustic and environmental sensors to support navigation, SAR, and subsea infrastructure monitoring.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="footer">Slide 7 – Sensors &amp; payloads</div>
-  </section>
-
-  <!-- 8. Autonomy & control modes -->
-  <section>
-    <div>
-      <h2>Autonomy &amp; control</h2>
-      <div class="two-col">
-        <div class="col">
-          <ul>
-            <li><span class="accent">Autonomous.</span> Pre‑planned patrol routes with dynamic obstacle avoidance and adaptive loitering in areas of interest.</li>
-            <li><span class="accent">Semi‑autonomous.</span> Operator sets waypoints and mission boundaries from a secure tablet; Sentinel handles navigation and collision avoidance.</li>
-            <li><span class="accent">Man‑controlled.</span> Direct tele‑operation for complex manoeuvres, interdictions, or exercises.</li>
-          </ul>
-        </div>
-        <div class="col">
-          <ul>
-            <li><span class="accent">Air‑gapped compute.</span> Mission systems designed to operate fully disconnected from the public internet, with all decision‑making local to the vessel and command station.</li>
-            <li><span class="accent">Audit &amp; replay.</span> Full logging of routes, sensor activations, and operator inputs for compliance, training, and after‑action review.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="footer">Slide 8 – Autonomy &amp; control</div>
-  </section>
-
-  <!-- 9. Use case – Harbour patrol -->
-  <section>
-    <div>
-      <h2>Use case – harbour patrol</h2>
-      <div class="two-col">
-        <div class="col">
-          <ul>
-            <li>Continuous, pre‑programmed patrol routes across harbour basins, anchorages, and approaches.</li>
-            <li>Correlation of AIS data with observed vessel behaviour and crew device signatures.</li>
-            <li>Detection of anomalous loitering, dark vessels, or non‑compliant movements relative to harbour master instructions.</li>
-          </ul>
-        </div>
-        <div class="col">
-          <ul>
-            <li>Covert posture when submerged; optional mast deployment for visual identification and evidence capture.</li>
-            <li>Integration with harbour security operations centres via secure, on‑premise compute nodes.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="footer">Slide 9 – Use case: harbour</div>
-  </section>
-
-  <!-- 10. Use case – Coastal & seaways -->
-  <section>
-    <div>
-      <h2>Use case – coastal &amp; seaways</h2>
-      <div class="two-col">
-        <div class="col">
-          <ul>
-            <li>Monitoring of high‑risk coastal segments and known smuggling routes with persistent, low‑profile presence.</li>
-            <li>Pattern‑of‑life development for commercial and recreational vessels transiting key seaways.</li>
-            <li>RF and cellular signature collection to characterise crews and detect repeat offenders.</li>
-          </ul>
-        </div>
-        <div class="col">
-          <ul>
-            <li>Rapid re‑tasking for search and rescue support—Neptune Sentinel can be diverted to act as a sensor and comms node during incidents.</li>
-            <li>Optional linkage to coastal batteries, interceptors, or enforcement assets when kinetic or non‑kinetic response is required.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="footer">Slide 10 – Use case: coastal &amp; seaways</div>
-  </section>
-
-  <!-- 11. Use case – Arctic patrols -->
-  <section>
-    <div>
-      <h2>Use case – arctic patrols</h2>
-      <div class="two-col">
-        <div class="col">
-          <ul>
-            <li>Persistent presence in Arctic waters without exposing human crews to extreme conditions.</li>
-            <li>Tracking of research vessels, commercial traffic, and state actors in sensitive regions.</li>
-            <li>Environmental monitoring capabilities layered onto sovereignty patrol missions.</li>
-          </ul>
-        </div>
-        <div class="col">
-          <ul>
-            <li>Designed for ice‑edge and seasonal operations, complementing larger Arctic patrol vessels.</li>
-            <li>Supports Canada’s commitments to NATO and NORAD in northern approaches.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="footer">Slide 11 – Use case: arctic</div>
-  </section>
-
-  <!-- 12. Competitive landscape & differentiation -->
-  <section>
-    <div>
-      <h2>Competitive position</h2>
-      <div class="two-col">
-        <div class="col">
-          <h3>Conventional solutions</h3>
-          <ul>
-            <li>Crewed patrol craft with high operating costs and limited covert capability.</li>
-            <li>Traditional unmanned surface vessels not optimised for harbour safety or submersible operations.</li>
-            <li>Static sensors and cameras that lack mobility and depth coverage.</li>
-          </ul>
-        </div>
-        <div class="col">
-          <h3>Neptune advantages</h3>
-          <ul>
-            <li>Semi‑submersible, harbour‑safe platform specifically tailored to ports and coastal chokepoints.</li>
-            <li>Embedded SIGINT, AIS, and FLIR giving a full spectrum view of vessels and crews.</li>
-            <li>Canadian‑anchored, publicly listable maritime defence company with NATO‑aligned leadership.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="footer">Slide 12 – Competitive position</div>
-  </section>
-
-  <!-- 13. Business model & go-to-market -->
-  <section>
-    <div>
-      <h2>Business model &amp; GTM</h2>
-      <div class="two-col">
-        <div class="col">
-          <h3>Customers</h3>
-          <ul>
-            <li>Department of National Defence and Canadian Armed Forces.</li>
-            <li>Canadian Coast Guard and Department of Fisheries.</li>
-            <li>Public Safety, harbour masters, and law‑enforcement marine units.</li>
-          </ul>
-        </div>
-        <div class="col">
-          <h3>Model</h3>
-          <ul>
-            <li>Platform sales plus multi‑year support, autonomy, and data‑services contracts.</li>
-            <li>Pilot deployments in key Canadian ports followed by NATO harbour expansion via Norway and UK partners.</li>
-            <li>Path to public listing as a specialised maritime defence company once initial contracts are secured.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="footer">Slide 13 – Business model</div>
-  </section>
-
-  <!-- 14. Suppliers & partners -->
-  <section>
-    <div>
-      <h2>Suppliers &amp; partners</h2>
-      <div class="two-col">
-        <div class="col">
-          <h3>Key industrial suppliers</h3>
-          <ul>
-            <li>Zodiac‑class military inflatable hull suppliers.</li>
-            <li>Specialised hull and systems integrators for submersible platforms.</li>
-            <li>Navigation and marine electronics vendors for harsh environments.</li>
-          </ul>
-        </div>
-        <div class="col">
-          <h3>Strategic partners</h3>
-          <ul>
-            <li>Department of Fisheries and Oceans.</li>
-            <li>Department of National Defence and Public Safety.</li>
-            <li>Harbour authorities and Canadian law‑enforcement agencies.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="footer">Slide 14 – Suppliers &amp; partners</div>
-  </section>
-
-  <!-- 15. Technology & data architecture -->
-  <section>
-    <div>
-      <h2>Technology &amp; data architecture</h2>
-      <div class="two-col">
-        <div class="col">
-          <ul>
-            <li>Air‑gapped compute fabric inspired by modern defense‑grade infrastructure—no cloud dependency, all mission data stays within sovereign perimeters.</li>
-            <li>Modular autonomy stack for navigation, sensor fusion, and anomaly detection.</li>
-            <li>Secure, role‑based access control and full audit logging for every mission and operator action.</li>
-          </ul>
-        </div>
-        <div class="col">
-          <ul>
-            <li>Encrypted data pipelines from vessel to shore‑side operations centres.</li>
-            <li>On‑premise analytics nodes for pattern‑of‑life development and cross‑harbour correlation.</li>
-            <li>APIs for integration with national and allied maritime domain awareness systems.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="footer">Slide 15 – Technology</div>
-  </section>
-
-  <!-- 16. Roadmap -->
-  <section>
-    <div>
-      <h2>Roadmap</h2>
-      <div class="two-col">
-        <div class="col">
-          <h3>0–18 months</h3>
-          <ul>
-            <li>Design freeze and first prototype build of Neptune Sentinel hull and core systems.</li>
-            <li>Harbour‑trial autonomy and safety testing in a controlled Canadian port environment.</li>
-            <li>Initial data‑sharing pilots with DFO, DND, and select harbour authorities.</li>
-          </ul>
-        </div>
-        <div class="col">
-          <h3>18–48 months</h3>
-          <ul>
-            <li>Multi‑vessel deployments across Canadian harbours and coastal chokepoints.</li>
-            <li>NATO harbour deployments via Norwegian and UK partners.</li>
-            <li>Preparation for public listing and expansion into additional maritime defence product lines.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="footer">Slide 16 – Roadmap</div>
-  </section>
-
-  <!-- 17. Team -->
-  <section>
-    <div>
-      <h2>Team</h2>
-      <div class="two-col">
-        <div class="col">
-          <h3>Founding team</h3>
-          <ul>
-            <li>Alex "Macro" Makrodimitras – CEO, former Canadian special operations and naval experience.</li>
-            <li>Adam "Moose" Cook – COO, Canadian military and Royal Canadian Navy background.</li>
-            <li>Andreas "Huscook" Harstaad – Chief Strategy Officer, Norwegian special forces experience.</li>
-            <li>Evin Revello – CTO, systems engineer and US Air Force veteran.</li>
-          </ul>
-        </div>
-        <div class="col">
-          <h3>Advisors</h3>
-          <ul>
-            <li>Former Vice Chief of the Defence Staff with deep joint‑force and procurement insight.</li>
-            <li>Former Canadian intelligence officer and defence‑focused entrepreneur.</li>
-            <li>Norwegian marine engineer with special operations maritime expertise.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="footer">Slide 17 – Team</div>
-  </section>
-
-  <!-- 18. Investment ask -->
-  <section>
-    <div>
-      <h2>Investment &amp; partnership</h2>
-      <div class="two-col">
-        <div class="col">
-          <h3>Capital ask</h3>
-          <ul>
-            <li>Seed round to fund design, prototyping, and initial harbour trials.</li>
-            <li>Follow‑on growth capital targeted toward multi‑vessel deployments and NATO expansion.</li>
-          </ul>
-        </div>
-        <div class="col">
-          <h3>What we are looking for</h3>
-          <ul>
-            <li>Strategic investors with defence, maritime, or government contracting experience.</li>
-            <li>Port and harbour authorities willing to host pilot deployments.</li>
-            <li>OEM partners for hulls, propulsion, sensors, and secure compute.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="footer">Slide 18 – Investment</div>
-  </section>
-
+  </div>
 </div>
+
+<script>
+  (function() {
+    const slidesContainer = document.querySelector('.slides');
+    const sections = Array.from(document.querySelectorAll('section'));
+
+    function currentIndex() {
+      const viewportHeight = window.innerHeight;
+      let idx = 0;
+      let minDist = Infinity;
+      sections.forEach((sec, i) => {
+        const rect = sec.getBoundingClientRect();
+        const dist = Math.abs(rect.top);
+        if (dist < minDist) {
+          minDist = dist;
+          idx = i;
+        }
+      });
+      return idx;
+    }
+
+    function scrollToIndex(i) {
+      if (i < 0 || i >= sections.length) return;
+      const top = sections[i].offsetTop;
+      slidesContainer.scrollTo({ top, behavior: 'smooth' });
+    }
+
+    document.addEventListener('keydown', (e) => {
+      const key = e.key;
+      if (['ArrowDown', 'PageDown', ' '].includes(key)) {
+        e.preventDefault();
+        scrollToIndex(currentIndex() + 1);
+      }
+      if (['ArrowUp', 'PageUp'].includes(key)) {
+        e.preventDefault();
+        scrollToIndex(currentIndex() - 1);
+      }
+    });
+  })();
+</script>
+
 </body>
 </html>

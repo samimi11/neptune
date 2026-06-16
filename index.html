@@ -22,7 +22,7 @@
       height: 100%;
       width: 100%;
       scroll-snap-type: y mandatory;
-      overflow-y: scroll;
+      overflow-y: auto;
     }
     section {
       box-sizing: border-box;
@@ -34,17 +34,17 @@
       justify-content: space-between;
       scroll-snap-align: start;
     }
-    h1,h2,h3 { margin:0 0 20px; }
-    h1 { font-size:42px; letter-spacing:0.04em; text-transform:uppercase; }
-    h2 { font-size:32px; letter-spacing:0.03em; text-transform:uppercase; }
-    p { font-size:18px; line-height:1.5; max-width:960px; }
-    .subtitle { font-size:22px; opacity:0.85; }
-    .two-col { display:flex; gap:56px; }
-    .col { flex:1; }
-    ul { font-size:18px; line-height:1.5; padding-left:20px; }
-    li { margin-bottom:8px; }
+    h1, h2, h3 { margin: 0 0 20px; }
+    h1 { font-size: 42px; letter-spacing: 0.04em; text-transform: uppercase; }
+    h2 { font-size: 32px; letter-spacing: 0.03em; text-transform: uppercase; }
+    p { font-size: 18px; line-height: 1.5; max-width: 960px; }
+    .subtitle { font-size: 22px; opacity: 0.85; }
+    .two-col { display: flex; gap: 56px; }
+    .col { flex: 1; }
+    ul { font-size: 18px; line-height: 1.5; padding-left: 20px; }
+    li { margin-bottom: 8px; }
     .tag { display:inline-block; padding:4px 10px; border-radius:999px; border:1px solid #3a7cff; font-size:12px; letter-spacing:0.12em; text-transform:uppercase; color:#9bb8ff; }
-    .footer { font-size:14px; opacity:0.6; }
+    .footer { font-size: 14px; opacity: 0.6; }
     .accent { color:#63b3ff; }
     .panel { border-radius:16px; border:1px solid #1c2538; padding:20px 24px; background:radial-gradient(circle at top left, rgba(76,143,255,0.18), transparent 55%); }
     @media (max-width: 900px) {
@@ -57,166 +57,197 @@
 <div class="deck">
   <div class="slides">
 
-  <!-- 1. Cover -->
-  <section>
-    <div>
-      <span class="tag">Confidential – Draft</span>
-      <h1>Neptune Sentinel</h1>
-      <p class="subtitle">Autonomous submersible sentinels for harbours, seaways, and Arctic waters.</p>
-      <p>Building Canada’s first publicly listed maritime defence neo‑prime, delivering persistent, covert surveillance and response without putting sailors at risk.</p>
-    </div>
-    <div class="footer">Neptune Sentinel • Vancouver, BC • June 2026</div>
-  </section>
+    <!-- 1. Cover -->
+    <section>
+      <div>
+        <span class="tag">Confidential – Draft</span>
+        <h1>Neptune Sentinel</h1>
+        <p class="subtitle">Autonomous submersible sentinels for harbours, seaways, and Arctic waters.</p>
+        <p>Building Canada’s first publicly listed maritime defence neo‑prime, delivering persistent, covert surveillance and response without putting sailors at risk.</p>
+      </div>
+      <div class="footer">Neptune Sentinel • Vancouver, BC • June 2026</div>
+    </section>
 
-  <!-- 2. Mission & vision -->
-  <section>
-    <div>
-      <h2>Mission &amp; vision</h2>
-      <div class="two-col">
-        <div class="col">
-          <p><span class="accent">Mission.</span> Deploy semi‑autonomous, harbour‑safe submersible vessels that extend Canada’s maritime domain awareness and response across ports, coastal approaches, seaways, and the Arctic—with human operators remaining on shore or over‑the‑horizon.</p>
-          <p><span class="accent">Vision.</span> Become the sovereign maritime layer in a new generation of defence neo‑primes—complementing aerospace and cyber stacks with a purpose‑built, blue‑water and littoral robotics company.</p>
+    <!-- 2. Mission & vision -->
+    <section>
+      <div>
+        <h2>Mission &amp; vision</h2>
+        <div class="two-col">
+          <div class="col">
+            <p><span class="accent">Mission.</span> Deploy semi‑autonomous, harbour‑safe submersible vessels that extend Canada’s maritime domain awareness and response across ports, coastal approaches, seaways, and the Arctic—with human operators remaining on shore or over‑the‑horizon.</p>
+            <p><span class="accent">Vision.</span> Become the sovereign maritime layer in a new generation of defence neo‑primes—complementing aerospace and cyber stacks with a purpose‑built, blue‑water and littoral robotics company.</p>
+          </div>
+          <div class="col">
+            <div class="panel">
+              <h3>What we build</h3>
+              <ul>
+                <li>Multi‑modal submersible surveillance vessels.</li>
+                <li>Signals intelligence and FLIR sensor payloads.</li>
+                <li>Autonomy and command‑and‑control software.</li>
+                <li>Interfaces for kinetic and non‑kinetic effectors.</li>
+              </ul>
+            </div>
+          </div>
         </div>
-        <div class="col">
-          <div class="panel">
-            <h3>What we build</h3>
+      </div>
+      <div class="footer">Slide 2 – Mission &amp; vision</div>
+    </section>
+
+    <!-- 3. Defence market – Juno-style -->
+    <section>
+      <div>
+        <h2>Global defence tech tailwinds</h2>
+        <div class="two-col">
+          <div class="col">
             <ul>
-              <li>Multi‑modal submersible surveillance vessels.</li>
-              <li>Signals intelligence and FLIR sensor payloads.</li>
-              <li>Autonomy and command‑and‑control software.</li>
-              <li>Interfaces for kinetic and non‑kinetic effectors.</li>
+              <li>Allied defence budgets are rising sharply following renewed great‑power competition, with Canada announcing multi‑billion rearmament and procurement reforms that explicitly call out modern defence primes. [Inspired by Juno coverage]</li>
+              <li>NATO states are shifting spend toward autonomous systems, ISR, and software‑defined capabilities, opening the door for new entrants beside legacy primes. [web:421][web:399]</li>
+              <li>Recent financings show investor appetite: Juno Industries closed an oversubscribed C$12M raise on a path to TSXV listing to build a Canadian defence prime. [web:397][web:419][web:422]</li>
+            </ul>
+          </div>
+          <div class="col">
+            <ul>
+              <li>Directed‑energy, uncrewed systems, and sensor fusion are emerging as distinct budget lines in US and NATO planning, benefitting specialised platform companies. [web:399][web:421]</li>
+              <li>Defence tech deals into autonomy/ISR have scaled into the multi‑billion range annually, with public‑market exits for Anduril‑style primes now a visible reference set. [web:421][web:420]</li>
+              <li>Canada has no listed maritime defence neo‑prime, leaving open a public‑equity slot analogous to Juno’s aerospace/ISR positioning. [web:397][web:419]</li>
             </ul>
           </div>
         </div>
       </div>
-    </div>
-    <div class="footer">Slide 2 – Mission &amp; vision</div>
-  </section>
+      <div class="footer">Slide 3 – Defence market</div>
+    </section>
 
-  <!-- 3. Why now (macro) -->
-  <section>
-    <div>
-      <h2>Why now – macro drivers</h2>
-      <div class="two-col">
-        <div class="col">
-          <ul>
-            <li>Accelerating grey‑zone maritime activity: smuggling, sanctions evasion, hostile state research vessels, and uncrewed intrusions in NATO ports and critical waterways.</li>
-            <li>Persistent under‑investment in Canadian maritime infrastructure versus air and land, leaving gaps in ports, coastal chokepoints, and the Arctic.</li>
-            <li>Severe manpower constraints across Navy, Coast Guard, and law enforcement—traditional crewed patrol craft cannot scale with mission load.</li>
-          </ul>
-        </div>
-        <div class="col">
-          <ul>
-            <li>Rapid adoption of autonomous systems and AI‑driven ISR across NATO, with new budget lines specifically for uncrewed and semi‑autonomous maritime platforms.</li>
-            <li>Growing emphasis on sovereign, air‑gapped defense compute and classified data processing—favouring vendors who design for disconnected operations from day one.</li>
-            <li>No publicly listed Canadian maritime defence prime; capital markets and defence buyers are both looking for a scalable, focused platform company.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="footer">Slide 3 – Why now</div>
-  </section>
-
-  <!-- 4. Problem – operational gaps -->
-  <section>
-    <div>
-      <h2>Operational problem</h2>
-      <div class="two-col">
-        <div class="col">
-          <h3>Today’s maritime patrol reality</h3>
-          <ul>
-            <li>Harbours and chokepoints rely on a patchwork of cameras, AIS receivers, and sporadic manned patrols.</li>
-            <li>Coastal and Arctic patrols require expensive crewed vessels operating in harsh, low‑yield conditions.</li>
-            <li>Signals intelligence in the maritime domain is episodic—small windows when manned assets are present.</li>
-          </ul>
-        </div>
-        <div class="col">
-          <h3>Resulting capability gaps</h3>
-          <ul>
-            <li>Limited pattern‑of‑life understanding for vessels and crews transiting harbours and coastal routes.</li>
-            <li>Inability to maintain covert, persistent presence close to high‑risk targets without escalating visibly.</li>
-            <li>Insufficient coverage of Arctic and remote seaways where human exposure and cost are high.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="footer">Slide 4 – Problem</div>
-  </section>
-
-  <!-- 5. Solution overview -->
-  <section>
-    <div>
-      <h2>Solution – Neptune sentinel</h2>
-      <div class="two-col">
-        <div class="col">
-          <p>Neptune Sentinel is a <span class="accent">multi‑modal submersible semi‑autonomous surveillance vessel</span> designed to patrol harbours, seaways, rivers, coastal zones, and Arctic waters.</p>
-          <ul>
-            <li>Operates in fully autonomous, semi‑autonomous, or man‑in‑the‑loop modes depending on mission and ROE.</li>
-            <li>Semi‑submersible: inflates to surface to employ FLIR and EW payloads; submerges for covert transit and data collection.</li>
-            <li>Built around a rugged hard shell encased in harbour‑safe Zodiac‑style inflatable material.</li>
-          </ul>
-        </div>
-        <div class="col">
-          <div class="panel">
-            <h3>Primary mission set</h3>
+    <!-- 4. Canada & NATO opportunity -->
+    <section>
+      <div>
+        <h2>Canada &amp; nato opportunity</h2>
+        <div class="two-col">
+          <div class="col">
             <ul>
-              <li>Harbour and port patrol.</li>
-              <li>Coastal and seaway monitoring.</li>
-              <li>Arctic and remote‑water sovereignty patrols.</li>
-              <li>Search and rescue cueing and overwatch.</li>
+              <li>Canada is rapidly rearming and modernising procurement, with explicit emphasis on domestic defence industrial capacity and sovereign technology. [web:421][web:419]</li>
+              <li>Existing Canadian defence tech plays (e.g., Juno) are oriented to aerospace, compute, and ISR, leaving maritime domain awareness and harbour defence underserved. [web:399][web:397]</li>
+              <li>Canada’s Arctic commitments under NATO and NORAD create a structural need for cost‑effective persistent presence in harsh waters.</li>
+            </ul>
+          </div>
+          <div class="col">
+            <ul>
+              <li>NATO partners are investing in port and subsea infrastructure protection—cables, energy, and shipping lanes—where submersible, harbour‑safe autonomous platforms can be rapidly adopted.</li>
+              <li>Neptune Sentinel positions as the maritime counterpart to air‑gapped, customer‑hosted defence compute solutions like Juno Orion, designed to operate fully disconnected and within classified perimeters. [web:399]</li>
+              <li>First‑mover advantage to build a TSX/TSXV‑listed maritime defence neo‑prime, with Canada as reference customer and NATO as scale market.</li>
             </ul>
           </div>
         </div>
       </div>
-    </div>
-    <div class="footer">Slide 5 – Solution overview</div>
-  </section>
+      <div class="footer">Slide 4 – Canada &amp; NATO</div>
+    </section>
 
-  <!-- 6–18: REMAINDER OF YOUR SECTIONS (UNCHANGED) -->
-  <!-- Paste all remaining <section> blocks here exactly as in your previous file -->
+    <!-- 5. Operational problem -->
+    <section>
+      <div>
+        <h2>Operational problem</h2>
+        <div class="two-col">
+          <div class="col">
+            <h3>Today’s maritime patrol reality</h3>
+            <ul>
+              <li>Harbours and chokepoints rely on a patchwork of cameras, AIS receivers, and sporadic manned patrols.</li>
+              <li>Coastal and Arctic patrols require expensive crewed vessels operating in harsh, low‑yield conditions.</li>
+              <li>Maritime SIGINT is episodic—small windows when manned assets are present.</li>
+            </ul>
+          </div>
+          <div class="col">
+            <h3>Resulting capability gaps</h3>
+            <ul>
+              <li>Limited pattern‑of‑life understanding for vessels and crews transiting harbours and coastal routes.</li>
+              <li>Inability to maintain covert, persistent presence close to high‑risk targets without escalating visibly.</li>
+              <li>Insufficient coverage of Arctic and remote seaways where human exposure and cost are high.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer">Slide 5 – Problem</div>
+    </section>
 
-  </div>
-</div>
+    <!-- 6. Solution overview -->
+    <section>
+      <div>
+        <h2>Solution – Neptune sentinel</h2>
+        <div class="two-col">
+          <div class="col">
+            <p>Neptune Sentinel is a <span class="accent">multi‑modal submersible semi‑autonomous surveillance vessel</span> designed to patrol harbours, seaways, rivers, coastal zones, and Arctic waters.</p>
+            <ul>
+              <li>Operates in fully autonomous, semi‑autonomous, or man‑in‑the‑loop modes depending on mission and ROE.</li>
+              <li>Semi‑submersible: inflates to surface to employ FLIR and EW payloads; submerges for covert transit and data collection.</li>
+              <li>Built around a rugged hard shell encased in harbour‑safe inflatable material.</li>
+            </ul>
+          </div>
+          <div class="col">
+            <div class="panel">
+              <h3>Primary mission set</h3>
+              <ul>
+                <li>Harbour and port patrol.</li>
+                <li>Coastal and seaway monitoring.</li>
+                <li>Arctic and remote‑water sovereignty patrols.</li>
+                <li>Search and rescue cueing and overwatch.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer">Slide 6 – Solution overview</div>
+    </section>
 
-<script>
-  (function() {
-    const slidesContainer = document.querySelector('.slides');
-    const sections = Array.from(document.querySelectorAll('section'));
+    <!-- 7. Platform design -->
+    <section>
+      <div>
+        <h2>Platform design</h2>
+        <div class="two-col">
+          <div class="col">
+            <ul>
+              <li><span class="accent">Hull.</span> Internal hard shell for structural integrity and payload mounting, surrounded by an inflatable collar for harbour‑safe operations and collision tolerance.</li>
+              <li><span class="accent">Semi‑submersible.</span> Operates primarily below the surface to avoid navigational conflicts, surfacing or inflating only when required for specific sensors or comms.</li>
+              <li><span class="accent">Power.</span> High‑density battery system with solar recharging on upper surfaces for persistent loiter capability.</li>
+            </ul>
+          </div>
+          <div class="col">
+            <ul>
+              <li><span class="accent">Propulsion.</span> Low‑noise electric drive optimised for harbour environments and shallow waters.</li>
+              <li><span class="accent">Modularity.</span> Open payload bay and mast interfaces for mission‑specific sensor or effector packages.</li>
+              <li><span class="accent">Safety.</span> Designed to comply with harbour master and maritime safety regulations; programmable exclusion zones and depth limits.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer">Slide 7 – Platform design</div>
+    </section>
 
-    function currentIndex() {
-      const viewportHeight = window.innerHeight;
-      let idx = 0;
-      let minDist = Infinity;
-      sections.forEach((sec, i) => {
-        const rect = sec.getBoundingClientRect();
-        const dist = Math.abs(rect.top);
-        if (dist < minDist) {
-          minDist = dist;
-          idx = i;
-        }
-      });
-      return idx;
-    }
+    <!-- 8. Sensor & payload suite -->
+    <section>
+      <div>
+        <h2>Sensor &amp; payload suite</h2>
+        <div class="two-col">
+          <div class="col">
+            <h3>Signals intelligence</h3>
+            <ul>
+              <li>Cellular interception and IMSI‑catcher‑type capabilities for crew device correlation.</li>
+              <li>AIS receiver and spoof‑detection logic for vessel identification and anomaly spotting.</li>
+              <li>Rogue cell‑tower and RF spectrum monitoring to flag illicit or covert communications.</li>
+            </ul>
+          </div>
+          <div class="col">
+            <h3>ISR &amp; effects</h3>
+            <ul>
+              <li>FLIR and EO cameras on a semi‑submersible mast for day/night visual surveillance.</li>
+              <li>Optional kinetic and non‑kinetic payload interfaces for deterrence, tagging, or interdiction.</li>
+              <li>Acoustic and environmental sensors to support navigation, SAR, and subsea infrastructure monitoring.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer">Slide 8 – Sensors &amp; payloads</div>
+    </section>
 
-    function scrollToIndex(i) {
-      if (i < 0 || i >= sections.length) return;
-      const top = sections[i].offsetTop;
-      slidesContainer.scrollTo({ top, behavior: 'smooth' });
-    }
-
-    document.addEventListener('keydown', (e) => {
-      const key = e.key;
-      if (['ArrowDown', 'PageDown', ' '].includes(key)) {
-        e.preventDefault();
-        scrollToIndex(currentIndex() + 1);
-      }
-      if (['ArrowUp', 'PageUp'].includes(key)) {
-        e.preventDefault();
-        scrollToIndex(currentIndex() - 1);
-      }
-    });
-  })();
-</script>
-
-</body>
-</html>
+    <!-- 9. Autonomy & control -->
+    <section>
+      <div>
+        <h2>Autonomy &amp; control</h2>
+        <div 

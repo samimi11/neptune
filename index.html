@@ -1,703 +1,850 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Neptune Sentinel - Investor Pitch Deck</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
-    <style>
-        /* Modern CSS Variables & Resets */
-        :root {
-            --bg-main: #050b14;
-            --bg-card: #0b1524;
-            --bg-nav: #070e1a;
-            --accent: #38bdf8;
-            --accent-glow: rgba(56, 189, 248, 0.15);
-            --text-primary: #f8fafc;
-            --text-secondary: #94a3b8;
-            --text-muted: #64748b;
-            --border: rgba(56, 189, 248, 0.1);
-            --border-hover: rgba(56, 189, 248, 0.3);
-            --sidebar-width: 280px;
-        }
+  <meta charset="UTF-8" />
+  <title>Neptune Sentinel – Investor Deck</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg-main: #081016;
+      --navy-primary: #003B4F;
+      --navy-secondary: #20377B;
+      --accent-gold: #E8B00F;
+      --text-main: #E5EDF2;
+      --text-muted: #A5B3C0;
+      --border-subtle: #20313C;
+      --chip-bg: #10212C;
+      --card-bg: #050B10;
+    }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-        body {
-            background-color: var(--bg-main);
-            color: var(--text-primary);
-            font-family: 'Inter', sans-serif;
-            display: flex;
-            min-height: 100vh;
-            overflow-x: hidden;
-            letter-spacing: -0.01em;
-        }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, #003B4F 0, #081016 45%, #020408 100%);
+      color: var(--text-main);
+      line-height: 1.5;
+      padding: 32px 20px 80px;
+    }
 
-        /* Interactive Sidebar Navigation */
-        .sidebar {
-            width: var(--sidebar-width);
-            background-color: var(--bg-nav);
-            border-right: 1px solid var(--border);
-            height: 100vh;
-            position: fixed;
-            top: 0;
-            left: 0;
-            display: flex;
-            flex-direction: column;
-            padding: 30px 20px;
-            z-index: 100;
-        }
+    .deck {
+      max-width: 1120px;
+      margin: 0 auto;
+    }
 
-        .brand {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 40px;
-            padding-left: 10px;
-        }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(0, 59, 79, 0.45);
+      color: var(--text-muted);
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
 
-        .brand i {
-            color: var(--accent);
-            font-size: 24px;
-            text-shadow: 0 0 10px var(--accent-glow);
-        }
+    .pill-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--accent-gold);
+      box-shadow: 0 0 8px rgba(232, 176, 15, 0.7);
+    }
 
-        .brand-text {
-            font-family: 'Space Grotesk', sans-serif;
-            font-weight: 700;
-            font-size: 18px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
+    h1, h2, h3 {
+      font-weight: 600;
+      letter-spacing: 0.03em;
+    }
 
-        .nav-links {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            overflow-y: auto;
-            flex-grow: 1;
-        }
+    h1 {
+      font-size: clamp(32px, 4vw, 44px);
+      margin: 16px 0 10px;
+    }
 
-        .nav-links::-webkit-scrollbar {
-            width: 4px;
-        }
+    h2 {
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
 
-        .nav-links::-webkit-scrollbar-thumb {
-            background: var(--border);
-            border-radius: 4px;
-        }
+    h3 {
+      font-size: 14px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
 
-        .nav-item {
-            padding: 12px 16px;
-            border-radius: 8px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            color: var(--text-secondary);
-            font-size: 14px;
-            font-weight: 500;
-            transition: all 0.2s ease;
-            text-decoration: none;
-        }
+    p {
+      margin-bottom: 10px;
+      color: var(--text-main);
+    }
 
-        .nav-item:hover, .nav-item.active {
-            background-color: rgba(56, 189, 248, 0.06);
-            color: var(--text-primary);
-            border-left: 3px solid var(--accent);
-            padding-left: 13px;
-        }
+    .muted {
+      color: var(--text-muted);
+      font-size: 14px;
+    }
 
-        /* Main Content Container */
-        .main-content {
-            margin-left: var(--sidebar-width);
-            flex-grow: 1;
-            padding: 60px;
-            max-width: 1400px;
-        }
+    .slide {
+      border-radius: 18px;
+      border: 1px solid var(--border-subtle);
+      background: radial-gradient(circle at top left,
+        rgba(232, 176, 15, 0.12),
+        rgba(16, 33, 44, 0.96));
+      margin-bottom: 24px;
+      padding: 24px 22px 22px;
+      box-shadow:
+        0 32px 80px rgba(0, 0, 0, 0.55),
+        0 0 0 1px rgba(0, 0, 0, 0.8);
+    }
 
-        /* Typography */
-        h1, h2, h3, h4 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-weight: 700;
-        }
+    .slide:nth-child(even) {
+      background: linear-gradient(135deg, #050B10, #071620 55%, #001923);
+    }
 
-        .slide-section {
-            padding-top: 20px;
-            margin-bottom: 100px;
-            scroll-margin-top: 60px;
-        }
+    .slide-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 16px;
+      margin-bottom: 14px;
+    }
 
-        .meta-tag {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 12px;
-            color: var(--accent);
-            text-transform: uppercase;
-            margin-bottom: 12px;
-            display: inline-block;
-            background: var(--accent-glow);
-            padding: 4px 10px;
-            border-radius: 4px;
-            border: 1px solid rgba(56, 189, 248, 0.2);
-        }
+    .slide-title {
+      font-size: 18px;
+      font-weight: 600;
+    }
 
-        .slide-title {
-            font-size: 42px;
-            line-height: 1.1;
-            margin-bottom: 16px;
-            font-weight: 700;
-        }
+    .slide-index {
+      font-size: 12px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
 
-        .slide-subtitle {
-            font-size: 18px;
-            color: var(--text-secondary);
-            margin-bottom: 40px;
-            max-width: 800px;
-            line-height: 1.6;
-        }
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 18px;
+      margin-top: 12px;
+    }
 
-        /* Component Layouts Grid/Cards */
-        .grid-2 {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-        }
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 6px;
+    }
 
-        .grid-3 {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-        }
+    .pill-chip {
+      font-size: 11px;
+      padding: 3px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(198, 204, 208, 0.25);
+      background: rgba(8, 16, 22, 0.8);
+      color: var(--text-muted);
+    }
 
-        .grid-4 {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-        }
+    ul {
+      list-style: none;
+      margin-top: 4px;
+    }
 
-        .card {
-            background-color: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 30px;
-            position: relative;
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-        }
+    li {
+      position: relative;
+      padding-left: 16px;
+      margin-bottom: 6px;
+      font-size: 14px;
+      color: var(--text-main);
+    }
 
-        .card:hover {
-            border-color: var(--border-hover);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        }
+    li::before {
+      content: "•";
+      position: absolute;
+      left: 4px;
+      color: var(--accent-gold);
+      font-size: 14px;
+    }
 
-        .card i.card-icon {
-            font-size: 28px;
-            color: var(--accent);
-            margin-bottom: 24px;
-            display: inline-block;
-        }
+    .metric-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 10px;
+    }
 
-        .card h3 {
-            font-size: 22px;
-            margin-bottom: 12px;
-            font-weight: 600;
-        }
+    .metric {
+      flex: 1 1 120px;
+      min-width: 120px;
+      padding: 10px 10px 9px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #050B10, #00141D);
+      border: 1px solid rgba(198, 204, 208, 0.14);
+    }
 
-        .card p, .card li {
-            font-size: 15px;
-            color: var(--text-secondary);
-            line-height: 1.6;
-        }
+    .metric-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
 
-        /* Custom Bullet Layouts */
-        .bullet-list {
-            list-style: none;
-        }
+    .metric-value {
+      font-size: 18px;
+      font-weight: 600;
+      color: #ffffff;
+    }
 
-        .bullet-list li {
-            position: relative;
-            padding-left: 28px;
-            margin-bottom: 16px;
-        }
+    .tagline {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: 6px;
+    }
 
-        .bullet-list li::before {
-            content: "\f054";
-            font-family: "Font Awesome 6 Free";
-            font-weight: 900;
-            position: absolute;
-            left: 0;
-            top: 3px;
-            font-size: 12px;
-            color: var(--accent);
-        }
+    .callout {
+      margin-top: 10px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(232, 176, 15, 0.45);
+      background: radial-gradient(circle at left,
+        rgba(232, 176, 15, 0.14),
+        rgba(5, 11, 16, 0.96));
+      font-size: 13px;
+      color: var(--text-main);
+    }
 
-        /* Spec Tables */
-        .table-wrapper {
-            background-color: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            overflow: hidden;
-        }
+    .label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            text-align: left;
-        }
+    .mono {
+      font-family: "SF Mono", Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      font-size: 11px;
+      color: var(--text-muted);
+    }
 
-        th {
-            background-color: rgba(255,255,255,0.02);
-            padding: 18px 24px;
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            color: var(--text-secondary);
-            border-bottom: 1px solid var(--border);
-        }
+    .teams {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+      margin-top: 10px;
+    }
 
-        td {
-            padding: 18px 24px;
-            font-size: 15px;
-            border-bottom: 1px solid rgba(255,255,255,0.03);
-        }
+    .person {
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid var(--border-subtle);
+      background: rgba(5, 11, 16, 0.96);
+    }
 
-        tr:last-child td {
-            border-bottom: none;
-        }
+    .person-name {
+      font-size: 14px;
+      font-weight: 500;
+      margin-bottom: 2px;
+    }
 
-        /* High-Impact Hero/Title layout */
-        .hero-section {
-            height: 85vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            position: relative;
-        }
+    .person-role {
+      font-size: 12px;
+      color: var(--accent-gold);
+      margin-bottom: 3px;
+    }
 
-        .hero-title {
-            font-size: 96px;
-            line-height: 1.0;
-            margin-bottom: 24px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: -2px;
-        }
+    .person-body {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
 
-        .hero-title span {
-            color: var(--accent);
-            text-shadow: 0 0 40px rgba(56, 189, 248, 0.2);
-        }
+    .footer {
+      margin-top: 32px;
+      font-size: 12px;
+      color: var(--text-muted);
+      text-align: center;
+    }
 
-        .hero-tagline {
-            font-size: 24px;
-            color: var(--text-secondary);
-            max-width: 700px;
-            line-height: 1.5;
-            margin-bottom: 40px;
-            font-weight: 300;
-        }
-
-        /* Metric Highlights */
-        .metric-big {
-            font-size: 48px;
-            font-family: 'Space Grotesk', sans-serif;
-            font-weight: 700;
-            color: var(--accent);
-            margin-bottom: 4px;
-        }
-
-        .metric-label {
-            font-size: 13px;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            font-family: 'JetBrains Mono', monospace;
-        }
-
-        /* Competitive Checkmark Badges */
-        .badge-check {
-            color: #10b981;
-            background: rgba(16, 185, 129, 0.1);
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-size: 12px;
-        }
-
-        .badge-cross {
-            color: #ef4444;
-            background: rgba(239, 68, 68, 0.1);
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-size: 12px;
-        }
-
-        /* Responsive */
-        @media (max-width: 1024px) {
-            body { flex-direction: column; }
-            .sidebar { width: 100%; height: auto; position: relative; }
-            .main-content { margin-left: 0; padding: 30px; }
-            .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; gap: 20px; }
-            .hero-title { font-size: 60px; }
-        }
-    </style>
+    @media (max-width: 768px) {
+      body {
+        padding: 20px 14px 60px;
+      }
+      .slide {
+        padding: 18px 16px 16px;
+      }
+      .two-col {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+  </style>
 </head>
 <body>
+  <main class="deck">
+    <!-- Slide 1: Cover -->
+    <section class="slide">
+      <div class="pill">
+        <span class="pill-dot"></span>
+        <span>Autonomous maritime defence</span>
+      </div>
+      <h1>Neptune Sentinel</h1>
+      <p style="font-size:15px; max-width:640px;">
+        Autonomous submersible sentinels for harbours, seaways, and Arctic warfare –
+        delivering persistent, covert surveillance and response without putting sailors at risk.
+      </p>
+      <div class="tagline">
+        Building Canada’s first publicly listed maritime defence neo‑prime.
+      </div>
+      <div class="pill-row">
+        <span class="pill-chip">Harbour &amp; port security</span>
+        <span class="pill-chip">Coastal chokepoints</span>
+        <span class="pill-chip">Arctic sovereignty</span>
+        <span class="pill-chip">Grey‑zone conflict</span>
+      </div>
+    </section>
 
-    <nav class="sidebar">
-        <div class="brand">
-            <i class="fa-solid fa-anchor"></i>
-            <div class="brand-text">Neptune Sentinel</div>
+    <!-- Slide 2: Mission & Vision -->
+    <section class="slide">
+      <div class="slide-header">
+        <div class="slide-title">Mission &amp; vision</div>
+        <div class="slide-index">01</div>
+      </div>
+      <h2>Mission: sovereign maritime eyes and ears, without risking crews</h2>
+      <p>
+        Neptune delivers covert, autonomous maritime surveillance so navies, coast guards,
+        and law enforcement can see further, stay longer, and act faster in the world’s most contested waters.
+      </p>
+      <h3>Vision</h3>
+      <p>
+        To become the sovereign maritime layer in the new defence stack – complementing aerospace and cyber primes
+        with a blue‑water and littoral robotics company purpose‑built for allied nations.
+      </p>
+      <div class="tagline">
+        From harbour to high Arctic, Neptune extends the reach of Canadian and allied fleets.
+      </div>
+    </section>
+
+    <!-- Slide 3: Why now -->
+    <section class="slide">
+      <div class="slide-header">
+        <div class="slide-title">Why now</div>
+        <div class="slide-index">02</div>
+      </div>
+      <h2>Maritime grey‑zone conflict is outpacing legacy fleets</h2>
+      <div class="two-col">
+        <div>
+          <h3>Structural pressures</h3>
+          <ul>
+            <li>
+              Rising grey‑zone activity: smuggling, sanctions evasion, hostile state research vessels,
+              and uncrewed intrusions in NATO ports and critical waterways.
+            </li>
+            <li>
+              Persistent under‑investment in Canadian maritime infrastructure versus air and land –
+              especially in ports, coastal chokepoints, and the Arctic.
+            </li>
+            <li>
+              Severe manpower constraints across navies, coast guards, and law enforcement; crewed patrol craft do not scale.
+            </li>
+          </ul>
         </div>
-        <ul class="nav-links">
-            <li><a href="#cover" class="nav-item active"><i class="fa-solid fa-shield-halved"></i> Cover</a></li>
-            <li><a href="#executive" class="nav-item"><i class="fa-solid fa-briefcase"></i> Executive Summary</a></li>
-            <li><a href="#problem" class="nav-item"><i class="fa-solid fa-circle-exclamation"></i> Operational Problem</a></li>
-            <li><a href="#whynow" class="nav-item"><i class="fa-solid fa-clock"></i> Why Now?</a></li>
-            <li><a href="#solution" class="nav-item"><i class="fa-solid fa-gears"></i> Platform Solution</a></li>
-            <li><a href="#defense-strategy" class="nav-item"><i class="fa-solid fa-landmark"></i> Defence Strategy</a></li>
-            <li><a href="#suppliers" class="nav-item"><i class="fa-solid fa-network-wired"></i> Ecosystem Partners</a></li>
-            <li><a href="#landscape" class="nav-item"><i class="fa-solid fa-chart-pie"></i> Public Company Landscape</a></li>
-            <li><a href="#leadership" class="nav-item"><i class="fa-solid fa-user-shield"></i> Senior Leadership</a></li>
+        <div>
+          <h3>Technology &amp; policy tailwinds</h3>
+          <ul>
+            <li>
+              NATO is rapidly adopting autonomous and AI‑driven ISR with dedicated budgets for uncrewed and semi‑autonomous platforms.
+            </li>
+            <li>
+              Sovereign, air‑gapped defence compute is now a requirement, not a luxury.
+            </li>
+            <li>
+              Canada has no publicly listed maritime defence prime – capital markets and defence buyers are
+              looking for a scalable, focused platform company.
+            </li>
+          </ul>
+          <div class="callout">
+            The timing is ideal to create a public Canadian autonomous maritime champion.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 4: Operational problem -->
+    <section class="slide">
+      <div class="slide-header">
+        <div class="slide-title">Operational problem</div>
+        <div class="slide-index">03</div>
+      </div>
+      <h2>Ports and chokepoints are blind in between patrols</h2>
+      <div class="two-col">
+        <div>
+          <h3>Current reality</h3>
+          <ul>
+            <li>
+              Patchwork of cameras, AIS receivers, and sporadic manned patrols in harbours and key chokepoints.
+            </li>
+            <li>
+              Signals intelligence is episodic – small windows when manned assets happen to be on station.
+            </li>
+            <li>
+              Limited pattern‑of‑life understanding for vessels, crews, and cargo transiting coastal routes.
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h3>Capability gaps</h3>
+          <ul>
+            <li>
+              No way to maintain covert, persistent presence near high‑risk targets without visible escalation.
+            </li>
+            <li>
+              Insufficient coverage of Arctic and remote seaways where human exposure and operating costs are high.
+            </li>
+            <li>
+              Fragmented, delayed data when incidents cross jurisdictional boundaries.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 5: Product intro -->
+    <section class="slide">
+      <div class="slide-header">
+        <div class="slide-title">Introducing Neptune Sentinel</div>
+        <div class="slide-index">04</div>
+      </div>
+      <h2>A semi‑submersible autonomous sentinel for the world’s hardest waters</h2>
+      <p>
+        Neptune Sentinel is a multi‑modal, semi‑submersible surveillance vessel designed to patrol harbours,
+        seaways, rivers, coastal zones, and Arctic waters – autonomously, persistently, and covertly.
+      </p>
+      <div class="two-col">
+        <div>
+          <h3>Primary mission sets</h3>
+          <ul>
+            <li>Harbour and port patrol.</li>
+            <li>Coastal and seaway monitoring.</li>
+            <li>Arctic and remote‑water sovereignty patrols.</li>
+            <li>Search and rescue cueing and overwatch.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Core design</h3>
+          <ul>
+            <li>
+              Operates in fully autonomous, semi‑autonomous, or man‑in‑the‑loop modes depending on mission and ROE.
+            </li>
+            <li>
+              Semi‑submersible profile inflates to surface for FLIR and EW payloads; submerges for covert transit and data collection.
+            </li>
+            <li>
+              Rugged hard shell encased in harbour‑safe Zodiac‑style inflatable material for safety and durability.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 6: Mission capabilities -->
+    <section class="slide">
+      <div class="slide-header">
+        <div class="slide-title">Mission capabilities</div>
+        <div class="slide-index">05</div>
+      </div>
+      <h2>Engineered for long, covert, and contested missions</h2>
+      <div class="metric-row">
+        <div class="metric">
+          <div class="metric-label">Endurance</div>
+          <div class="metric-value">72+ hours</div>
+          <div class="muted">Uncrewed in harsh maritime environments.</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Patrol speed</div>
+          <div class="metric-value">4–5 knots</div>
+          <div class="muted">Optimized for persistence and low observability.</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Visual profile</div>
+          <div class="metric-value">Semi‑sub</div>
+          <div class="muted">Low radar and visual signatures.</div>
+        </div>
+      </div>
+      <div style="margin-top:14px;">
+        <h3>Capability highlights</h3>
+        <ul>
+          <li>
+            Multi‑sensor mast with ELINT/SIGINT, FLIR/EO, AIS, and radar for comprehensive detection and classification.
+          </li>
+          <li>
+            Secure command‑and‑control links with options for air‑gapped data offload and classified handling.
+          </li>
+          <li>
+            High sea‑state survivability, including Arctic ice‑edge operations.
+          </li>
         </ul>
-    </nav>
+      </div>
+    </section>
 
-    <main class="main-content">
+    <!-- Slide 7: Sensor & autonomy stack -->
+    <section class="slide">
+      <div class="slide-header">
+        <div class="slide-title">Sensor &amp; autonomy stack</div>
+        <div class="slide-index">06</div>
+      </div>
+      <h2>A software‑defined maritime ISR platform</h2>
+      <div class="two-col">
+        <div>
+          <h3>Autonomy &amp; C2</h3>
+          <ul>
+            <li>
+              Maritime‑tuned autonomy with mission planning, obstacle avoidance, and man‑in‑the‑loop control for sensitive operations.
+            </li>
+            <li>
+              Over‑the‑horizon and line‑of‑sight control options for different threat environments.
+            </li>
+          </ul>
+          <h3>Sensor fusion</h3>
+          <ul>
+            <li>
+              ELINT/SIGINT, FLIR/EO, AIS, and radar fused into a single tactical picture.
+            </li>
+            <li>
+              Designed to feed existing naval and joint command systems without re‑architecting the stack.
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h3>Open, modular platform</h3>
+          <ul>
+            <li>
+              Open payload interfaces for kinetic and non‑kinetic effectors over time.
+            </li>
+            <li>
+              Sovereign edge compute with air‑gapped configurations for classified data.
+            </li>
+            <li>
+              Software‑defined mission profiles that can be updated across a fleet.
+            </li>
+          </ul>
+          <div class="mono">
+            // Designed from day one for disconnected, sovereign operations.
+          </div>
+        </div>
+      </div>
+    </section>
 
-        <section id="cover" class="slide-section hero-section">
-            <span class="meta-tag">SYSTEM DESIGNATION: NS-V1</span>
-            <h1 class="hero-title">NEPTUNE<br><span>SENTINEL</span></h1>
-            <p class="hero-tagline">Building Canada's first publicly listed maritime defence neo-prime. Delivering persistent, covert maritime surveillance and response operations without risking sovereign sailors.</p>
-            <div class="grid-4" style="max-width: 900px; margin-top: 20px;">
-                <div class="card" style="padding: 20px;">
-                    <div class="metric-big">72H</div>
-                    <div class="metric-label">Uncrewed Endurance [cite: 3]</div>
-                </div>
-                <div class="card" style="padding: 20px;">
-                    <div class="metric-big">45 KT</div>
-                    <div class="metric-label">Operational Speed [cite: 27]</div>
-                </div>
-                <div class="card" style="padding: 20px;">
-                    <div class="metric-big">$80B</div>
-                    <div class="metric-label">Direct Defence Spend [cite: 27]</div>
-                </div>
-                <div class="card" style="padding: 20px;">
-                    <div class="metric-big">1st</div>
-                    <div class="metric-label">Maritime Neo-Prime </div>
-                </div>
-            </div>
-        </section>
+    <!-- Slide 8: Built for extremes -->
+    <section class="slide">
+      <div class="slide-header">
+        <div class="slide-title">Built for extremes</div>
+        <div class="slide-index">07</div>
+      </div>
+      <h2>From Arctic ice‑edge to tropical interdiction</h2>
+      <p>
+        The Sentinel’s engineering, hull design, and inflatable collar system are optimized to survive and operate
+        in Sea State 5 and beyond, enabling missions that are too costly or dangerous for crewed vessels.
+      </p>
+      <div class="two-col">
+        <div>
+          <h3>High‑latitude operations</h3>
+          <ul>
+            <li>Arctic sovereignty patrols beneath ice edges and in remote channels.</li>
+            <li>Persistent monitoring of critical Arctic shipping lanes.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Global littoral &amp; blue‑water</h3>
+          <ul>
+            <li>Harbour protection against uncrewed intrusions and low‑signature threats.</li>
+            <li>
+              Coastal interdiction support, cueing manned assets only when and where they are needed.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-        <section id="executive" class="slide-section">
-            <span class="meta-tag">Strategic Vision</span>
-            <h2 class="slide-title">Executive Summary</h2>
-            <p class="slide-subtitle">Neptune addresses a critical sovereign vulnerability: uncompromised coastal surveillance across blue-water, littoral, and harsh Arctic domains[cite: 1, 5].</p>
-            
-            <div class="grid-3">
-                <div class="card">
-                    <i class="fa-solid fa-bullseye card-icon"></i>
-                    <h3>The Mission</h3>
-                    <p>To deploy autonomous, semi-submersible platforms capable of executing relentless surveillance and data integration workflows across contested environments[cite: 3].</p>
-                </div>
-                <div class="card">
-                    <i class="fa-solid fa-crosshairs card-icon"></i>
-                    <h3>Platform Focus</h3>
-                    <p>Multi-modal submersible hulls integrated with SIGINT, ELINT, and advanced FLIR sensor arrays, optimized with custom air-gapped autonomy suites[cite: 3, 4, 12].</p>
-                </div>
-                <div class="card">
-                    <i class="fa-solid fa-eye card-icon"></i>
-                    <h3>The Sovereignty Layer</h3>
-                    <p>Positioned as the definitive maritime tech stack inside defense neo-primes—bridging the space between aerospace monitoring and digital cybersecurity ecosystems[cite: 5].</p>
-                </div>
-            </div>
-        </section>
+    <!-- Slide 9: Strategic suppliers -->
+    <section class="slide">
+      <div class="slide-header">
+        <div class="slide-title">Strategic suppliers &amp; partners</div>
+        <div class="slide-index">08</div>
+      </div>
+      <h2>Global maritime supply chain, defence‑grade integration</h2>
+      <p>
+        Neptune integrates best‑in‑class maritime components to meet defence‑grade standards for durability,
+        performance, and safety – while remaining interoperable with allied fleets.
+      </p>
+      <div class="teams">
+        <div class="person">
+          <div class="person-name">Zodiac Milpro &amp; Wing Boats</div>
+          <div class="person-role">Inflatable systems</div>
+          <div class="person-body">
+            Inflatable collars and polyurethane tubes from global leaders in professional RIB and tactical inflatable solutions.
+          </div>
+        </div>
+        <div class="person">
+          <div class="person-name">GOAL FISH Boats</div>
+          <div class="person-role">Hull &amp; hydrodynamics</div>
+          <div class="person-body">
+            High‑speed hull designs and marine engineering optimized for extreme sea states and rapid interdiction.
+          </div>
+        </div>
+        <div class="person">
+          <div class="person-name">SOAL Marine Group</div>
+          <div class="person-role">Primary integrator</div>
+          <div class="person-body">
+            Primary integrator and manufacturing partner for sub‑miniature, multi‑mission payloads.
+          </div>
+        </div>
+        <div class="person">
+          <div class="person-name">SeaCross</div>
+          <div class="person-role">Navigation “brain”</div>
+          <div class="person-body">
+            Unified navigation, AIS, radar integration, and tactical target tracking for autonomous operations.
+          </div>
+        </div>
+      </div>
+    </section>
 
-        <section id="problem" class="slide-section">
-            <span class="meta-tag">Threat Landscape</span>
-            <h2 class="slide-title">The Maritime Capability Gap</h2>
-            <p class="slide-subtitle">Traditional crewed patrol crafts are unable to scale effectively against asymmetric grey-zone threats and escalating territorial incursions[cite: 10, 14].</p>
-            
-            <div class="grid-2">
-                <div class="card">
-                    <h3 style="color: #ef4444; margin-bottom: 20px;"><i class="fa-solid fa-triangle-exclamation"></i> Current Operational Realities</h3>
-                    <ul class="bullet-list">
-                        <li><strong>Patchwork Surveillance:</strong> Strategic harbors rely heavily on static cameras, simple AIS trackers, and random crewed rounds[cite: 16].</li>
-                        <li><strong>Prohibitive Arctic Costs:</strong> High-exposure environments require multi-million dollar traditional vessels operating in extreme climates[cite: 17, 21].</li>
-                        <li><strong>Episodic Intelligence:</strong> Signals collection suffers from massive blindspots, occurring only when crewed assets are physically stationed[cite: 18].</li>
-                    </ul>
-                </div>
-                <div class="card">
-                    <h3 style="color: var(--accent); margin-bottom: 20px;"><i class="fa-solid fa-arrow-right-to-bracket"></i> Critical Vulnerabilities</h3>
-                    <ul class="bullet-list">
-                        <li>No continuous, long-term operational pattern-of-life visibility for vessels moving through vital straits[cite: 19].</li>
-                        <li>An inability to maintain a persistent, covert presence near suspect hulls without creating standard military diplomatic flare-ups[cite: 20].</li>
-                        <li>Severe military, coastal enforcement, and naval manpower deficits that severely limit standard fleet capacity[cite: 14].</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
+    <!-- Slide 10: Defence strategy tailwinds -->
+    <section class="slide">
+      <div class="slide-header">
+        <div class="slide-title">Defence &amp; policy tailwinds</div>
+        <div class="slide-index">09</div>
+      </div>
+      <h2>Canada’s Defence Industrial Strategy is a generational opening</h2>
+      <p>
+        In 2026, Canada committed record spending to sovereign capabilities, Arctic infrastructure,
+        and autonomous systems – directly aligning with Neptune’s mission.
+      </p>
+      <div class="two-col">
+        <div>
+          <h3>Strategic focus areas</h3>
+          <ul>
+            <li>Uncrewed and autonomous systems.</li>
+            <li>Sensors and digital systems.</li>
+            <li>AI‑enabled command, control, and communications.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Procurement shifts</h3>
+          <ul>
+            <li>
+              Streamlined approvals and faster procurement cycles for qualified suppliers.
+            </li>
+            <li>
+              Strong emphasis on “Buy Canada” and sovereign defence capabilities.
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="callout">
+        Neptune is purpose‑built for the intersection of autonomy, Arctic security, and sovereign defence compute.
+      </div>
+    </section>
 
-        <section id="whynow" class="slide-section">
-            <span class="meta-tag">Market Catalyst</span>
-            <h2 class="slide-title">Why Neptune Sentinel? Why Now?</h2>
-            <p class="slide-subtitle">A convergence of shifting global grey-zone activity and a historic reallocation of capital creates an entry window for a dedicated maritime platform[cite: 10, 11].</p>
-            
-            <div class="grid-3">
-                <div class="card">
-                    <div class="meta-tag" style="margin-bottom: 15px;">Grey-Zone Escalation</div>
-                    <p>Surges in smuggling, automated intrusions inside NATO bases, illegal research hulls, and severe sanctions evasion tactics across global waterways[cite: 10].</p>
-                </div>
-                <div class="card">
-                    <div class="meta-tag" style="margin-bottom: 15px;">The Prime Vacuum</div>
-                    <p>Canada possesses zero standalone publicly traded maritime defense primes[cite: 11]. Both institutions and defense procurers want a structured tech platform company[cite: 11].</p>
-                </div>
-                <div class="card">
-                    <div class="meta-tag" style="margin-bottom: 15px;">Disconnected Autonomy</div>
-                    <p>Modern defense mandates require sovereign, air-gapped compute capabilities capable of carrying out missions during completely jammed communications[cite: 12].</p>
-                </div>
-            </div>
-        </section>
+    <!-- Slide 11: Market opportunity -->
+    <section class="slide">
+      <div class="slide-header">
+        <div class="slide-title">Market opportunity</div>
+        <div class="slide-index">10</div>
+      </div>
+      <h2>Transforming maritime ISR into an investable public platform</h2>
+      <p>
+        Canadian public investors have very limited ways to gain exposure to autonomous defence, ISR,
+        and maritime robotics. Neptune aims to become the reference public company in this category.
+      </p>
+      <ul>
+        <li>
+          Scarcity premium: Few listed defence tech companies focused on autonomous maritime platforms.
+        </li>
+        <li>
+          Rising multiples for high‑growth defence and autonomous systems companies.
+        </li>
+        <li>
+          Export upside across NATO and allied markets seeking interoperable, sovereign‑friendly ISR solutions.
+        </li>
+      </ul>
+    </section>
 
-        <section id="solution" class="slide-section">
-            <span class="meta-tag">Tactical Hardware & Software</span>
-            <h2 class="slide-title">The Sentinel Platform Specification</h2>
-            <p class="slide-subtitle">A multi-modal, semi-submersible platform meticulously engineered to conduct automated reconnaissance missions across unpredictable coastal regions[cite: 22].</p>
+    <!-- Slide 12: Business model -->
+    <section class="slide">
+      <div class="slide-header">
+        <div class="slide-title">Business model</div>
+        <div class="slide-index">11</div>
+      </div>
+      <h2>Platform revenues across hardware, software, and services</h2>
+      <div class="two-col">
+        <div>
+          <h3>Platform sales</h3>
+          <ul>
+            <li>
+              Sentinel vessels sold under multi‑year defence and security contracts with options for fleet expansions and upgrades.
+            </li>
+          </ul>
+          <h3>Software &amp; data</h3>
+          <ul>
+            <li>
+              Recurring revenue from autonomy, C2, and analytics software licenses, including on‑prem classified deployments.
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h3>Mission services</h3>
+          <ul>
+            <li>Training, integration, and fleet management.</li>
+            <li>Long‑term maintenance and support agreements.</li>
+            <li>Continuous software updates and payload integration services.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-            <div class="grid-2" style="margin-bottom: 40px;">
-                <div class="card">
-                    <h3>Flexible Deployment</h3>
-                    <p style="margin-bottom: 16px;">Functions smoothly in fully autonomous, semi-autonomous, or direct man-in-the-loop operational configurations depending on rules of engagement (ROE)[cite: 23].</p>
-                    <ul class="bullet-list">
-                        <li><strong>Surface Operations:</strong> Inflates its outer ballast envelope to raise sensor masts, engaging specialized FLIR/EO cameras and EW gathering payloads[cite: 24].</li>
-                        <li><strong>Covert Submersion:</strong> Automatically expels air to submerge its visual outline down to a minimal freeboard, conducting silent, undetectable transits[cite: 24].</li>
-                    </ul>
-                </div>
-                <div class="card">
-                    <h3>Ruggedized Survivability</h3>
-                    <p>Constructed around an armored, air-tight structural core enclosed within a tactical, harbor-safe Zodiac-style specialized impact ring[cite: 25]. Designed specifically to shrug off debris impacts while protecting high-value classified sensor payloads[cite: 4, 25].</p>
-                </div>
-            </div>
+    <!-- Slide 13: Go-to-market -->
+    <section class="slide">
+      <div class="slide-header">
+        <div class="slide-title">Go‑to‑market</div>
+        <div class="slide-index">12</div>
+      </div>
+      <h2>From pilot deployments to fleet‑level programmes</h2>
+      <ul>
+        <li>
+          Phase 1 – Pilot sentinels in high‑priority harbours and Arctic corridors to demonstrate covert persistence.
+        </li>
+        <li>
+          Phase 2 – Expand mission profiles (sanctions enforcement, SAR cueing, Arctic sovereignty patrols).
+        </li>
+        <li>
+          Phase 3 – Fleet‑scale deployments with standardized training, maintenance, and software upgrade cycles.
+        </li>
+      </ul>
+    </section>
 
-            <div class="table-wrapper">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Parameter Class</th>
-                            <th>Harbour / Seaway Spec [cite: 22]</th>
-                            <th>Arctic & Open Ocean Spec [cite: 1, 22]</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Operational Mission Profile</strong></td>
-                            <td>Port security, asset protection, choke-point tracking [cite: 25, 26]</td>
-                            <td>Sovereignty reassurance, deep sub-zero patrols [cite: 1, 26]</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Endurance Matrix</strong></td>
-                            <td>Up to 48 Hours uninterrupted operational loop</td>
-                            <td>72 to 96 Hours sustained deep patrol matrix [cite: 3]</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Visual Profile Rating</strong></td>
-                            <td>Ultra-low profile semi-submersible silhouette [cite: 3]</td>
-                            <td>Fully dynamic adjustable freeboard configuration [cite: 24]</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Sensor Payload Suite</strong></td>
-                            <td>Discreet mast ELINT, custom line-of-sight FLIR [cite: 3]</td>
-                            <td>Multi-band encrypted signal capture, long-range EO [cite: 3]</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
+    <!-- Slide 14: Team -->
+    <section class="slide">
+      <div class="slide-header">
+        <div class="slide-title">Team</div>
+        <div class="slide-index">13</div>
+      </div>
+      <h2>Built by operators, engineers, and defence insiders</h2>
+      <p class="muted">
+        Leadership combines Tier 1 special operations, naval operations, autonomous systems, and capital markets experience.
+      </p>
+      <div class="teams">
+        <div class="person">
+          <div class="person-name">Alex “Marko” Makrodimitras</div>
+          <div class="person-role">Chief Executive Officer</div>
+          <div class="person-body">
+            Former Joint Task Force 2 (JTF 2) operator with deep national security and special operations expertise.
+          </div>
+        </div>
+        <div class="person">
+          <div class="person-name">Adam “Moose” Cook</div>
+          <div class="person-role">Chief Operating Officer</div>
+          <div class="person-body">
+            Canadian Special Operations Forces Command and Royal Canadian Navy background; operational and maritime leadership.
+          </div>
+        </div>
+        <div class="person">
+          <div class="person-name">Evin Revello</div>
+          <div class="person-role">Chief Technology Officer</div>
+          <div class="person-body">
+            US Air Force veteran and autonomy engineer with experience delivering defence‑grade software systems.
+          </div>
+        </div>
+      </div>
+      <div class="tagline">
+        Advised by former Vice Chief of Defence, Canadian intelligence officers, and senior maritime engineers.
+      </div>
+    </section>
 
-        <section id="defense-strategy" class="slide-section">
-            <span class="meta-tag">Macro Funding Inflow</span>
-            <h2 class="slide-title">The Changing Canadian Defence Paradigm</h2>
-            <p class="slide-subtitle">Driven by the landmark 2026 Defence Industrial Strategy, massive capital deployment is shifting toward native, sovereign tech platforms[cite: 27].</p>
-            
-            <div class="grid-4" style="margin-bottom: 40px;">
-                <div class="card">
-                    <div class="metric-big">+$500B</div>
-                    <div class="metric-label">New Total Budget Line [cite: 27]</div>
-                </div>
-                <div class="card">
-                    <div class="metric-big">$80B</div>
-                    <div class="metric-label">Direct Defence Procurement [cite: 27]</div>
-                </div>
-                <div class="card">
-                    <div class="metric-big">$32B</div>
-                    <div class="metric-label">Arctic Infrastructure Focus [cite: 27]</div>
-                </div>
-                <div class="card">
-                    <div class="metric-big">+300%</div>
-                    <div class="metric-label">Projected Sector Growth [cite: 28]</div>
-                </div>
-            </div>
+    <!-- Slide 15: Why we win -->
+    <section class="slide">
+      <div class="slide-header">
+        <div class="slide-title">Why Neptune wins</div>
+        <div class="slide-index">14</div>
+      </div>
+      <h2>Neptune’s edge</h2>
+      <ul>
+        <li>Operator‑led design grounded in real‑world maritime and special operations missions.</li>
+        <li>Maritime‑first autonomy, not ported from land or air systems.</li>
+        <li>Sovereign focus aligned with Canada’s “Buy Canada” and defence compute priorities.</li>
+        <li>Built from inception for public‑market discipline and scalability.</li>
+      </ul>
+    </section>
 
-            <div class="grid-2">
-                <div class="card">
-                    <h3><i class="fa-solid fa-arrow-trend-up" style="color: #10b981;"></i> Mandated Procurement Priorities</h3>
-                    <p style="margin-top: 10px;">The strategic framework focuses on modernizing defense acquisition pathways by slashing bureaucratic administrative red tape and prioritizing immediate uncrewed and autonomous integration across the Canadian Armed Forces (CAF)[cite: 27, 28].</p>
-                </div>
-                <div class="card">
-                    <h3><i class="fa-solid fa-shield" style="color: var(--accent);"></i> The "Buy Canada" Directive</h3>
-                    <p style="margin-top: 10px;">The mandate explicitly targets reducing historical, over-reliance on foreign technologies by shifting defense supply loops back to local tech innovators capable of scaling regional research and development[cite: 27, 28].</p>
-                </div>
-            </div>
-        </section>
+    <!-- Slide 16: Capital markets positioning -->
+    <section class="slide">
+      <div class="slide-header">
+        <div class="slide-title">Capital markets positioning</div>
+        <div class="slide-index">15</div>
+      </div>
+      <h2>A pure‑play autonomous maritime defence platform</h2>
+      <p>
+        Neptune aims to be the benchmark public company for investors seeking exposure to autonomous maritime defence,
+        Arctic security, and defence‑grade robotics.
+      </p>
+      <ul>
+        <li>Clear category: autonomous, semi‑submersible ISR and patrol platforms.</li>
+        <li>Multiple growth vectors: hardware fleets, software, and services.</li>
+        <li>Strategic upside via partnerships or integrations with larger aerospace and defence primes.</li>
+      </ul>
+    </section>
 
-        <section id="suppliers" class="slide-section">
-            <span class="meta-tag">Integrated Supply Chain</span>
-            <h2 class="slide-title">World-Class Tier 1 Supplier Ecosystem</h2>
-            <p class="slide-subtitle">Neptune minimizes production risks by heavily customizing and integrating battle-proven sub-systems from Tier 1 defense suppliers[cite: 29].</p>
-            
-            <div class="grid-4">
-                <div class="card">
-                    <div class="brand-text" style="color: var(--accent); margin-bottom: 10px;">Zodiac Milpro</div>
-                    <p>Global baseline standard for tactical inflatable solutions and multi-chamber military buoyancy collars[cite: 31].</p>
-                </div>
-                <div class="card">
-                    <div class="brand-text" style="color: var(--accent); margin-bottom: 10px;">SOAL Marine</div>
-                    <p>Acts as our premier integration and hull fabrication blueprint partner, managing deep subminiature multi-mission bays[cite: 31, 33].</p>
-                </div>
-                <div class="card">
-                    <div class="brand-text" style="color: var(--accent); margin-bottom: 10px;">SeaCross</div>
-                    <p>The integrated navigation core, synthesizing target tracking data into automated navigation profiles[cite: 35, 36].</p>
-                </div>
-                <div class="card">
-                    <div class="brand-text" style="color: var(--accent); margin-bottom: 10px;">Wing Boats</div>
-                    <p>Specialists in custom high-durability polyurethane tubes that ensure long-term resistance to extreme weather[cite: 31, 32].</p>
-                </div>
-            </div>
-        </section>
+    <!-- Slide 17: Raise -->
+    <section class="slide">
+      <div class="slide-header">
+        <div class="slide-title">Funding &amp; use of proceeds</div>
+        <div class="slide-index">16</div>
+      </div>
+      <h2>Capital to accelerate defence‑grade deployment</h2>
+      <p class="muted">
+        (This slide is GitHub‑safe and avoids specific fundraising amounts.)
+      </p>
+      <ul>
+        <li>
+          Complete production‑ready Sentinel configuration and hardening for Arctic operations.
+        </li>
+        <li>
+          Secure and deliver initial pilot deployments with Canadian and allied agencies.
+        </li>
+        <li>
+          Expand autonomy, payload integrations, and classified data‑handling capabilities.
+        </li>
+      </ul>
+      <div class="callout">
+        We are inviting aligned defence‑focused investors who understand the long‑term value
+        of sovereign maritime capability and public‑market‑ready defence technology.
+      </div>
+    </section>
 
-        <section id="landscape" class="slide-section">
-            <span class="meta-tag">Capital Markets Map</span>
-            <h2 class="slide-title">The Public Company Landscape</h2>
-            <p class="slide-subtitle">Public market investors are seeking immediate exposure to the next generation of defense-technology providers, who command premium valuations[cite: 39, 41].</p>
+    <!-- Slide 18: Closing -->
+    <section class="slide">
+      <div class="slide-header">
+        <div class="slide-title">Closing</div>
+        <div class="slide-index">17</div>
+      </div>
+      <h2>Sovereign maritime security, without risking crews</h2>
+      <p>
+        Neptune Sentinel turns contested waters into monitored waters – persistently, covertly, and at scale.
+        We are building the sovereign maritime layer that this decade’s defence stack requires.
+      </p>
+      <p class="muted" style="margin-top:12px;">
+        Contact: &lt;your‑email@neptunedefence.com&gt; &nbsp;•&nbsp;
+        GitHub: &lt;github.com/your‑org/neptune‑deck&gt;
+      </p>
+    </section>
 
-            <div class="table-wrapper">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Company Category</th>
-                            <th>Pure-Play Maritime Tech Focus</th>
-                            <th>Sovereign Air-Gapped Autonomy Suite</th>
-                            <th>Listed on Canadian Markets</th>
-                            <th>Multiple Trend Line</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Neptune Sentinel</strong></td>
-                            <td><span class="badge-check"><i class="fa-solid fa-check"></i> Pure-Play [cite: 1, 3]</span></td>
-                            <td><span class="badge-check"><i class="fa-solid fa-check"></i> Native [cite: 12]</span></td>
-                            <td><span class="badge-check"><i class="fa-solid fa-check"></i> Target Listing </span></td>
-                            <td><strong style="color: var(--accent);">Early Mover Premium [cite: 40]</strong></td>
-                        </tr>
-                        <tr>
-                            <td>Traditional Legacy Primes</td>
-                            <td><span class="badge-cross"><i class="fa-solid fa-xmark"></i> Legacy Heavy Fleet</span></td>
-                            <td><span class="badge-cross"><i class="fa-solid fa-xmark"></i> Patchwork Hardware</span></td>
-                            <td><span class="badge-cross"><i class="fa-solid fa-xmark"></i> Foreign Listed Only</span></td>
-                            <td>Standard Conglomerate Multiples</td>
-                        </tr>
-                        <tr>
-                            <td>Aerospace Defense Operators</td>
-                            <td><span class="badge-cross"><i class="fa-solid fa-xmark"></i> Airborne Arrays Only</span></td>
-                            <td><span class="badge-check"><i class="fa-solid fa-check"></i> Cloud Dependent</span></td>
-                            <td><span class="badge-cross"><i class="fa-solid fa-xmark"></i> Low Local Availability</span></td>
-                            <td>Tech Premium (Hardware Bound)</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-
-        <section id="leadership" class="slide-section">
-            <span class="meta-tag">Operational Leadership</span>
-            <h2 class="slide-title">Built by Operators, for Operators</h2>
-            <p class="slide-subtitle">Our executive team combines deep tactical expertise from elite special operations forces with enterprise defense software backgrounds[cite: 6].</p>
-            
-            <div class="grid-2" style="margin-bottom: 30px;">
-                <div class="card">
-                    <span class="meta-tag">Chief Executive Officer</span>
-                    <h3 style="margin: 8px 0;">Alex "Marko" Makrodimitras</h3>
-                    <p style="color: var(--accent); font-family: 'JetBrains Mono', monospace; font-size: 13px; margin-bottom: 12px;">Joint Task Force 2 (JTF 2) Veteran [cite: 7]</p>
-                    <p>Brings a decade of elite tier-1 maritime security experience from the Canadian Special Operations Forces Command (CANSOFCOM)[cite: 7].</p>
-                </div>
-                <div class="card">
-                    <span class="meta-tag">Chief Operating Officer</span>
-                    <h3 style="margin: 8px 0;">Adam "Moose" Cook</h3>
-                    <p style="color: var(--accent); font-family: 'JetBrains Mono', monospace; font-size: 13px; margin-bottom: 12px;">Joint Task Force 2 (JTF 2) Veteran [cite: 7, 71]</p>
-                    <p>Specializes in naval logistics and maritime field integrations across harsh northern and deep littoral theaters[cite: 7, 72].</p>
-                </div>
-            </div>
-
-            <div class="grid-3">
-                <div class="card" style="padding: 20px;">
-                    <h4 style="font-size: 16px;">Andreas Harstaad</h4>
-                    <div style="font-size:12px; color:var(--text-muted); font-family:'JetBrains Mono'; margin-bottom:8px;">CSO &bull; Norwegian FSK [cite: 75]</div>
-                    <p style="font-size:13px;">Leads international NATO alignment and arctic security partnerships[cite: 75].</p>
-                </div>
-                <div class="card" style="padding: 20px;">
-                    <h4 style="font-size: 16px;">Evin Revello</h4>
-                    <div style="font-size:12px; color:var(--text-muted); font-family:'JetBrains Mono'; margin-bottom:8px;">CTO &bull; US Air Force Veteran [cite: 76, 77]</div>
-                    <p style="font-size:13px;">Oversees development of our sovereign, air-gapped autonomy architecture[cite: 12, 76].</p>
-                </div>
-                <div class="card" style="padding: 20px;">
-                    <h4 style="font-size: 16px;">Vice Chief (Ret.) Mike Rouleau</h4>
-                    <div style="font-size:12px; color:var(--text-muted); font-family:'JetBrains Mono'; margin-bottom:8px;">Strategic Advisor [cite: 78, 79]</div>
-                    <p style="font-size:13px;">Advises on national military frameworks and global defense acquisition loops[cite: 78, 79].</p>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <script>
-        document.querySelectorAll('.nav-item').forEach(link => {
-            link.addEventListener('click', function(e) {
-                document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
-                this.classList.add('active');
-            });
-        });
-
-        // Intersection Observer to track scroll positions dynamically
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.4
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const id = entry.target.getAttribute('id');
-                    document.querySelectorAll('.nav-item').forEach(navItem => {
-                        if (navItem.getAttribute('href') === `#${id}`) {
-                            document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
-                            navItem.classList.add('active');
-                        }
-                    });
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.slide-section').forEach(section => {
-            observer.observe(section);
-        });
-    </script>
+    <div class="footer">
+      Neptune Sentinel – Confidential investor material. For discussion purposes only.
+    </div>
+  </main>
 </body>
 </html>

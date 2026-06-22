@@ -17,11 +17,7 @@
       --card-bg: #050B10;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
@@ -32,10 +28,7 @@
       padding: 32px 20px 80px;
     }
 
-    .deck {
-      max-width: 1120px;
-      margin: 0 auto;
-    }
+    .deck { max-width: 1120px; margin: 0 auto; }
 
     .pill {
       display: inline-flex;
@@ -91,6 +84,7 @@
     }
 
     .slide {
+      position: relative;
       border-radius: 18px;
       border: 1px solid var(--border-subtle);
       background: radial-gradient(circle at top left,
@@ -101,6 +95,7 @@
       box-shadow:
         0 32px 80px rgba(0, 0, 0, 0.55),
         0 0 0 1px rgba(0, 0, 0, 0.8);
+      overflow: hidden;
     }
 
     .slide:nth-child(even) {
@@ -113,6 +108,8 @@
       align-items: baseline;
       gap: 16px;
       margin-bottom: 14px;
+      position: relative;
+      z-index: 2;
     }
 
     .slide-title {
@@ -132,6 +129,8 @@
       grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
       gap: 18px;
       margin-top: 12px;
+      position: relative;
+      z-index: 2;
     }
 
     .pill-row {
@@ -139,6 +138,8 @@
       flex-wrap: wrap;
       gap: 6px;
       margin-top: 6px;
+      position: relative;
+      z-index: 2;
     }
 
     .pill-chip {
@@ -176,6 +177,8 @@
       flex-wrap: wrap;
       gap: 12px;
       margin-top: 10px;
+      position: relative;
+      z-index: 2;
     }
 
     .metric {
@@ -205,6 +208,8 @@
       font-size: 13px;
       color: var(--text-muted);
       margin-top: 6px;
+      position: relative;
+      z-index: 2;
     }
 
     .callout {
@@ -217,6 +222,8 @@
         rgba(5, 11, 16, 0.96));
       font-size: 13px;
       color: var(--text-main);
+      position: relative;
+      z-index: 2;
     }
 
     .label {
@@ -238,6 +245,8 @@
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 14px;
       margin-top: 10px;
+      position: relative;
+      z-index: 2;
     }
 
     .person {
@@ -271,44 +280,112 @@
       text-align: center;
     }
 
+    /* Image helpers */
+    .hero-image {
+      position: absolute;
+      inset: 0;
+      opacity: 0.40;
+      mix-blend-mode: screen;
+      pointer-events: none;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.02);
+    }
+
+    .slide-hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .image-band {
+      margin: -24px -22px 18px;
+      height: 210px;
+      overflow: hidden;
+    }
+
+    .image-band img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .image-band-tall {
+      margin: -24px -22px 18px;
+      height: 260px;
+      overflow: hidden;
+    }
+
+    .image-band-tall img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .logo-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+      margin-top: 10px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .logo-row img {
+      height: 26px;
+      object-fit: contain;
+      filter: grayscale(0.1);
+      opacity: 0.95;
+    }
+
+    .logo-row.small img {
+      height: 20px;
+    }
+
     @media (max-width: 768px) {
-      body {
-        padding: 20px 14px 60px;
-      }
-      .slide {
-        padding: 18px 16px 16px;
-      }
-      .two-col {
-        grid-template-columns: minmax(0, 1fr);
-      }
+      body { padding: 20px 14px 60px; }
+      .slide { padding: 18px 16px 16px; }
+      .two-col { grid-template-columns: minmax(0, 1fr); }
+      .image-band, .image-band-tall { height: 180px; }
     }
   </style>
 </head>
 <body>
   <main class="deck">
-    <!-- Slide 1: Cover -->
+    <!-- Slide 1: Cover with hero image (Picture3-2.jpg) -->
     <section class="slide">
-      <div class="pill">
-        <span class="pill-dot"></span>
-        <span>Autonomous maritime defence</span>
+      <div class="hero-image">
+        <img src="Picture3-2.jpg" alt="Neptune Sentinel at sea at sunset">
       </div>
-      <h1>Neptune Sentinel</h1>
-      <p style="font-size:15px; max-width:640px;">
-        Autonomous submersible sentinels for harbours, seaways, and Arctic warfare –
-        delivering persistent, covert surveillance and response without putting sailors at risk.
-      </p>
-      <div class="tagline">
-        Building Canada’s first publicly listed maritime defence neo‑prime.
-      </div>
-      <div class="pill-row">
-        <span class="pill-chip">Harbour &amp; port security</span>
-        <span class="pill-chip">Coastal chokepoints</span>
-        <span class="pill-chip">Arctic sovereignty</span>
-        <span class="pill-chip">Grey‑zone conflict</span>
+      <div class="slide-hero-content">
+        <div class="pill">
+          <span class="pill-dot"></span>
+          <span>Autonomous maritime defence</span>
+        </div>
+        <h1>Neptune Sentinel</h1>
+        <p style="font-size:15px; max-width:640px;">
+          Autonomous submersible sentinels for harbours, seaways, and Arctic warfare –
+          delivering persistent, covert surveillance and response without putting sailors at risk.
+        </p>
+        <div class="tagline">
+          Building Canada’s first publicly listed maritime defence neo‑prime.
+        </div>
+        <div class="pill-row">
+          <span class="pill-chip">Harbour &amp; port security</span>
+          <span class="pill-chip">Coastal chokepoints</span>
+          <span class="pill-chip">Arctic sovereignty</span>
+          <span class="pill-chip">Grey‑zone conflict</span>
+        </div>
       </div>
     </section>
 
-    <!-- Slide 2: Mission & Vision -->
+    <!-- Slide 2: Mission & Vision (no image, text heavy) -->
     <section class="slide">
       <div class="slide-header">
         <div class="slide-title">Mission &amp; vision</div>
@@ -374,477 +451,5 @@
       </div>
     </section>
 
-    <!-- Slide 4: Operational problem -->
-    <section class="slide">
-      <div class="slide-header">
-        <div class="slide-title">Operational problem</div>
-        <div class="slide-index">03</div>
-      </div>
-      <h2>Ports and chokepoints are blind in between patrols</h2>
-      <div class="two-col">
-        <div>
-          <h3>Current reality</h3>
-          <ul>
-            <li>
-              Patchwork of cameras, AIS receivers, and sporadic manned patrols in harbours and key chokepoints.
-            </li>
-            <li>
-              Signals intelligence is episodic – small windows when manned assets happen to be on station.
-            </li>
-            <li>
-              Limited pattern‑of‑life understanding for vessels, crews, and cargo transiting coastal routes.
-            </li>
-          </ul>
-        </div>
-        <div>
-          <h3>Capability gaps</h3>
-          <ul>
-            <li>
-              No way to maintain covert, persistent presence near high‑risk targets without visible escalation.
-            </li>
-            <li>
-              Insufficient coverage of Arctic and remote seaways where human exposure and operating costs are high.
-            </li>
-            <li>
-              Fragmented, delayed data when incidents cross jurisdictional boundaries.
-            </li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- Slide 5: Product intro -->
-    <section class="slide">
-      <div class="slide-header">
-        <div class="slide-title">Introducing Neptune Sentinel</div>
-        <div class="slide-index">04</div>
-      </div>
-      <h2>A semi‑submersible autonomous sentinel for the world’s hardest waters</h2>
-      <p>
-        Neptune Sentinel is a multi‑modal, semi‑submersible surveillance vessel designed to patrol harbours,
-        seaways, rivers, coastal zones, and Arctic waters – autonomously, persistently, and covertly.
-      </p>
-      <div class="two-col">
-        <div>
-          <h3>Primary mission sets</h3>
-          <ul>
-            <li>Harbour and port patrol.</li>
-            <li>Coastal and seaway monitoring.</li>
-            <li>Arctic and remote‑water sovereignty patrols.</li>
-            <li>Search and rescue cueing and overwatch.</li>
-          </ul>
-        </div>
-        <div>
-          <h3>Core design</h3>
-          <ul>
-            <li>
-              Operates in fully autonomous, semi‑autonomous, or man‑in‑the‑loop modes depending on mission and ROE.
-            </li>
-            <li>
-              Semi‑submersible profile inflates to surface for FLIR and EW payloads; submerges for covert transit and data collection.
-            </li>
-            <li>
-              Rugged hard shell encased in harbour‑safe Zodiac‑style inflatable material for safety and durability.
-            </li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- Slide 6: Mission capabilities -->
-    <section class="slide">
-      <div class="slide-header">
-        <div class="slide-title">Mission capabilities</div>
-        <div class="slide-index">05</div>
-      </div>
-      <h2>Engineered for long, covert, and contested missions</h2>
-      <div class="metric-row">
-        <div class="metric">
-          <div class="metric-label">Endurance</div>
-          <div class="metric-value">72+ hours</div>
-          <div class="muted">Uncrewed in harsh maritime environments.</div>
-        </div>
-        <div class="metric">
-          <div class="metric-label">Patrol speed</div>
-          <div class="metric-value">4–5 knots</div>
-          <div class="muted">Optimized for persistence and low observability.</div>
-        </div>
-        <div class="metric">
-          <div class="metric-label">Visual profile</div>
-          <div class="metric-value">Semi‑sub</div>
-          <div class="muted">Low radar and visual signatures.</div>
-        </div>
-      </div>
-      <div style="margin-top:14px;">
-        <h3>Capability highlights</h3>
-        <ul>
-          <li>
-            Multi‑sensor mast with ELINT/SIGINT, FLIR/EO, AIS, and radar for comprehensive detection and classification.
-          </li>
-          <li>
-            Secure command‑and‑control links with options for air‑gapped data offload and classified handling.
-          </li>
-          <li>
-            High sea‑state survivability, including Arctic ice‑edge operations.
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- Slide 7: Sensor & autonomy stack -->
-    <section class="slide">
-      <div class="slide-header">
-        <div class="slide-title">Sensor &amp; autonomy stack</div>
-        <div class="slide-index">06</div>
-      </div>
-      <h2>A software‑defined maritime ISR platform</h2>
-      <div class="two-col">
-        <div>
-          <h3>Autonomy &amp; C2</h3>
-          <ul>
-            <li>
-              Maritime‑tuned autonomy with mission planning, obstacle avoidance, and man‑in‑the‑loop control for sensitive operations.
-            </li>
-            <li>
-              Over‑the‑horizon and line‑of‑sight control options for different threat environments.
-            </li>
-          </ul>
-          <h3>Sensor fusion</h3>
-          <ul>
-            <li>
-              ELINT/SIGINT, FLIR/EO, AIS, and radar fused into a single tactical picture.
-            </li>
-            <li>
-              Designed to feed existing naval and joint command systems without re‑architecting the stack.
-            </li>
-          </ul>
-        </div>
-        <div>
-          <h3>Open, modular platform</h3>
-          <ul>
-            <li>
-              Open payload interfaces for kinetic and non‑kinetic effectors over time.
-            </li>
-            <li>
-              Sovereign edge compute with air‑gapped configurations for classified data.
-            </li>
-            <li>
-              Software‑defined mission profiles that can be updated across a fleet.
-            </li>
-          </ul>
-          <div class="mono">
-            // Designed from day one for disconnected, sovereign operations.
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Slide 8: Built for extremes -->
-    <section class="slide">
-      <div class="slide-header">
-        <div class="slide-title">Built for extremes</div>
-        <div class="slide-index">07</div>
-      </div>
-      <h2>From Arctic ice‑edge to tropical interdiction</h2>
-      <p>
-        The Sentinel’s engineering, hull design, and inflatable collar system are optimized to survive and operate
-        in Sea State 5 and beyond, enabling missions that are too costly or dangerous for crewed vessels.
-      </p>
-      <div class="two-col">
-        <div>
-          <h3>High‑latitude operations</h3>
-          <ul>
-            <li>Arctic sovereignty patrols beneath ice edges and in remote channels.</li>
-            <li>Persistent monitoring of critical Arctic shipping lanes.</li>
-          </ul>
-        </div>
-        <div>
-          <h3>Global littoral &amp; blue‑water</h3>
-          <ul>
-            <li>Harbour protection against uncrewed intrusions and low‑signature threats.</li>
-            <li>
-              Coastal interdiction support, cueing manned assets only when and where they are needed.
-            </li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- Slide 9: Strategic suppliers -->
-    <section class="slide">
-      <div class="slide-header">
-        <div class="slide-title">Strategic suppliers &amp; partners</div>
-        <div class="slide-index">08</div>
-      </div>
-      <h2>Global maritime supply chain, defence‑grade integration</h2>
-      <p>
-        Neptune integrates best‑in‑class maritime components to meet defence‑grade standards for durability,
-        performance, and safety – while remaining interoperable with allied fleets.
-      </p>
-      <div class="teams">
-        <div class="person">
-          <div class="person-name">Zodiac Milpro &amp; Wing Boats</div>
-          <div class="person-role">Inflatable systems</div>
-          <div class="person-body">
-            Inflatable collars and polyurethane tubes from global leaders in professional RIB and tactical inflatable solutions.
-          </div>
-        </div>
-        <div class="person">
-          <div class="person-name">GOAL FISH Boats</div>
-          <div class="person-role">Hull &amp; hydrodynamics</div>
-          <div class="person-body">
-            High‑speed hull designs and marine engineering optimized for extreme sea states and rapid interdiction.
-          </div>
-        </div>
-        <div class="person">
-          <div class="person-name">SOAL Marine Group</div>
-          <div class="person-role">Primary integrator</div>
-          <div class="person-body">
-            Primary integrator and manufacturing partner for sub‑miniature, multi‑mission payloads.
-          </div>
-        </div>
-        <div class="person">
-          <div class="person-name">SeaCross</div>
-          <div class="person-role">Navigation “brain”</div>
-          <div class="person-body">
-            Unified navigation, AIS, radar integration, and tactical target tracking for autonomous operations.
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Slide 10: Defence strategy tailwinds -->
-    <section class="slide">
-      <div class="slide-header">
-        <div class="slide-title">Defence &amp; policy tailwinds</div>
-        <div class="slide-index">09</div>
-      </div>
-      <h2>Canada’s Defence Industrial Strategy is a generational opening</h2>
-      <p>
-        In 2026, Canada committed record spending to sovereign capabilities, Arctic infrastructure,
-        and autonomous systems – directly aligning with Neptune’s mission.
-      </p>
-      <div class="two-col">
-        <div>
-          <h3>Strategic focus areas</h3>
-          <ul>
-            <li>Uncrewed and autonomous systems.</li>
-            <li>Sensors and digital systems.</li>
-            <li>AI‑enabled command, control, and communications.</li>
-          </ul>
-        </div>
-        <div>
-          <h3>Procurement shifts</h3>
-          <ul>
-            <li>
-              Streamlined approvals and faster procurement cycles for qualified suppliers.
-            </li>
-            <li>
-              Strong emphasis on “Buy Canada” and sovereign defence capabilities.
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class="callout">
-        Neptune is purpose‑built for the intersection of autonomy, Arctic security, and sovereign defence compute.
-      </div>
-    </section>
-
-    <!-- Slide 11: Market opportunity -->
-    <section class="slide">
-      <div class="slide-header">
-        <div class="slide-title">Market opportunity</div>
-        <div class="slide-index">10</div>
-      </div>
-      <h2>Transforming maritime ISR into an investable public platform</h2>
-      <p>
-        Canadian public investors have very limited ways to gain exposure to autonomous defence, ISR,
-        and maritime robotics. Neptune aims to become the reference public company in this category.
-      </p>
-      <ul>
-        <li>
-          Scarcity premium: Few listed defence tech companies focused on autonomous maritime platforms.
-        </li>
-        <li>
-          Rising multiples for high‑growth defence and autonomous systems companies.
-        </li>
-        <li>
-          Export upside across NATO and allied markets seeking interoperable, sovereign‑friendly ISR solutions.
-        </li>
-      </ul>
-    </section>
-
-    <!-- Slide 12: Business model -->
-    <section class="slide">
-      <div class="slide-header">
-        <div class="slide-title">Business model</div>
-        <div class="slide-index">11</div>
-      </div>
-      <h2>Platform revenues across hardware, software, and services</h2>
-      <div class="two-col">
-        <div>
-          <h3>Platform sales</h3>
-          <ul>
-            <li>
-              Sentinel vessels sold under multi‑year defence and security contracts with options for fleet expansions and upgrades.
-            </li>
-          </ul>
-          <h3>Software &amp; data</h3>
-          <ul>
-            <li>
-              Recurring revenue from autonomy, C2, and analytics software licenses, including on‑prem classified deployments.
-            </li>
-          </ul>
-        </div>
-        <div>
-          <h3>Mission services</h3>
-          <ul>
-            <li>Training, integration, and fleet management.</li>
-            <li>Long‑term maintenance and support agreements.</li>
-            <li>Continuous software updates and payload integration services.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- Slide 13: Go-to-market -->
-    <section class="slide">
-      <div class="slide-header">
-        <div class="slide-title">Go‑to‑market</div>
-        <div class="slide-index">12</div>
-      </div>
-      <h2>From pilot deployments to fleet‑level programmes</h2>
-      <ul>
-        <li>
-          Phase 1 – Pilot sentinels in high‑priority harbours and Arctic corridors to demonstrate covert persistence.
-        </li>
-        <li>
-          Phase 2 – Expand mission profiles (sanctions enforcement, SAR cueing, Arctic sovereignty patrols).
-        </li>
-        <li>
-          Phase 3 – Fleet‑scale deployments with standardized training, maintenance, and software upgrade cycles.
-        </li>
-      </ul>
-    </section>
-
-    <!-- Slide 14: Team -->
-    <section class="slide">
-      <div class="slide-header">
-        <div class="slide-title">Team</div>
-        <div class="slide-index">13</div>
-      </div>
-      <h2>Built by operators, engineers, and defence insiders</h2>
-      <p class="muted">
-        Leadership combines Tier 1 special operations, naval operations, autonomous systems, and capital markets experience.
-      </p>
-      <div class="teams">
-        <div class="person">
-          <div class="person-name">Alex “Marko” Makrodimitras</div>
-          <div class="person-role">Chief Executive Officer</div>
-          <div class="person-body">
-            Former Joint Task Force 2 (JTF 2) operator with deep national security and special operations expertise.
-          </div>
-        </div>
-        <div class="person">
-          <div class="person-name">Adam “Moose” Cook</div>
-          <div class="person-role">Chief Operating Officer</div>
-          <div class="person-body">
-            Canadian Special Operations Forces Command and Royal Canadian Navy background; operational and maritime leadership.
-          </div>
-        </div>
-        <div class="person">
-          <div class="person-name">Evin Revello</div>
-          <div class="person-role">Chief Technology Officer</div>
-          <div class="person-body">
-            US Air Force veteran and autonomy engineer with experience delivering defence‑grade software systems.
-          </div>
-        </div>
-      </div>
-      <div class="tagline">
-        Advised by former Vice Chief of Defence, Canadian intelligence officers, and senior maritime engineers.
-      </div>
-    </section>
-
-    <!-- Slide 15: Why we win -->
-    <section class="slide">
-      <div class="slide-header">
-        <div class="slide-title">Why Neptune wins</div>
-        <div class="slide-index">14</div>
-      </div>
-      <h2>Neptune’s edge</h2>
-      <ul>
-        <li>Operator‑led design grounded in real‑world maritime and special operations missions.</li>
-        <li>Maritime‑first autonomy, not ported from land or air systems.</li>
-        <li>Sovereign focus aligned with Canada’s “Buy Canada” and defence compute priorities.</li>
-        <li>Built from inception for public‑market discipline and scalability.</li>
-      </ul>
-    </section>
-
-    <!-- Slide 16: Capital markets positioning -->
-    <section class="slide">
-      <div class="slide-header">
-        <div class="slide-title">Capital markets positioning</div>
-        <div class="slide-index">15</div>
-      </div>
-      <h2>A pure‑play autonomous maritime defence platform</h2>
-      <p>
-        Neptune aims to be the benchmark public company for investors seeking exposure to autonomous maritime defence,
-        Arctic security, and defence‑grade robotics.
-      </p>
-      <ul>
-        <li>Clear category: autonomous, semi‑submersible ISR and patrol platforms.</li>
-        <li>Multiple growth vectors: hardware fleets, software, and services.</li>
-        <li>Strategic upside via partnerships or integrations with larger aerospace and defence primes.</li>
-      </ul>
-    </section>
-
-    <!-- Slide 17: Raise -->
-    <section class="slide">
-      <div class="slide-header">
-        <div class="slide-title">Funding &amp; use of proceeds</div>
-        <div class="slide-index">16</div>
-      </div>
-      <h2>Capital to accelerate defence‑grade deployment</h2>
-      <p class="muted">
-        (This slide is GitHub‑safe and avoids specific fundraising amounts.)
-      </p>
-      <ul>
-        <li>
-          Complete production‑ready Sentinel configuration and hardening for Arctic operations.
-        </li>
-        <li>
-          Secure and deliver initial pilot deployments with Canadian and allied agencies.
-        </li>
-        <li>
-          Expand autonomy, payload integrations, and classified data‑handling capabilities.
-        </li>
-      </ul>
-      <div class="callout">
-        We are inviting aligned defence‑focused investors who understand the long‑term value
-        of sovereign maritime capability and public‑market‑ready defence technology.
-      </div>
-    </section>
-
-    <!-- Slide 18: Closing -->
-    <section class="slide">
-      <div class="slide-header">
-        <div class="slide-title">Closing</div>
-        <div class="slide-index">17</div>
-      </div>
-      <h2>Sovereign maritime security, without risking crews</h2>
-      <p>
-        Neptune Sentinel turns contested waters into monitored waters – persistently, covertly, and at scale.
-        We are building the sovereign maritime layer that this decade’s defence stack requires.
-      </p>
-      <p class="muted" style="margin-top:12px;">
-        Contact: &lt;your‑email@neptunedefence.com&gt; &nbsp;•&nbsp;
-        GitHub: &lt;github.com/your‑org/neptune‑deck&gt;
-      </p>
-    </section>
-
-    <div class="footer">
-      Neptune Sentinel – Confidential investor material. For discussion purposes only.
-    </div>
-  </main>
-</body>
-</html>
+    <!-- Slide 4: Operational problem with operational image (Picture16.jpg) -->
+    <section 
